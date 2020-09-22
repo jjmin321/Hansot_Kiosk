@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Hansot_Kiosk"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="Aqua">
+        <local:UserControlHome x:Name="ucHome" Visibility="Visible">
+            
+        </local:UserControlHome>
     </Grid>
 </Window>

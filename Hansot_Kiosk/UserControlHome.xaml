@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Hansot_Kiosk.UserControlHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hansot_Kiosk"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="Aqua">
+        <Grid>
+            <MediaElement Name="HansotVideo" Stretch="Fill" Height="4*" VerticalAlignment="Top" UnloadedBehavior="Manual" MediaEnded="HansotVideoEnded" 
+                  Source="C:\Users\user\source\repos\Hansot_Kiosk\Hansot_Kiosk\Static\뜨끈한 한솥_ 1월 한달 내내 초특가 할인! '블랙한솥데이 '.mp4">
+            </MediaElement>
+        </Grid>
+    </Grid>
+</UserControl>
