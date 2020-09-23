@@ -10,5 +10,8 @@
         <local:UserControlHome x:Name="ucHome" Visibility="Visible">
             
         </local:UserControlHome>
+        <local:UserControlHeader x:Name="ucHeader" Visibility="Visible">
+            
+        </local:UserControlHeader>
     </Grid>
 </Window>
