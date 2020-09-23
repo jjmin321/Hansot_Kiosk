@@ -17,5 +17,3 @@ C:\Users\user\source\repos\Hansot_Kiosk\Hansot_Kiosk\obj\Debug\Hansot_Kiosk.cspr
 C:\Users\user\source\repos\Hansot_Kiosk\Hansot_Kiosk\obj\Debug\Hansot_Kiosk.exe
 C:\Users\user\source\repos\Hansot_Kiosk\Hansot_Kiosk\obj\Debug\Hansot_Kiosk.pdb
 C:\Users\user\source\repos\Hansot_Kiosk\Hansot_Kiosk\obj\Debug\Hansot_Kiosk_Content.g.cs
-C:\Users\user\source\repos\Hansot_Kiosk\Hansot_Kiosk\obj\Debug\UserControlHeader.g.cs
-C:\Users\user\source\repos\Hansot_Kiosk\Hansot_Kiosk\obj\Debug\UserControlHeader.baml

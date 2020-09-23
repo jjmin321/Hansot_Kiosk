@@ -31,7 +31,7 @@ namespace Hansot_Kiosk
         }
         void timer_Tick(object sender, EventArgs e)
         {
-            header.Content = DateTime.Now.ToLongTimeString();
+            header.Content = DateTime.Now.ToString("yyyy년 MM월 dd일 dddd tt HH : mm : ss");
         }
     }
 }

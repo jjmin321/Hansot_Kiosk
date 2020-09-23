@@ -8,21 +8,18 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="Aqua">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="9.5*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="9.4*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <Label Name="header" Height="25" Content="header" Background="LightSkyBlue" />
+            <Label Name="header" Height="25" Content="header" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightSkyBlue" />
             <Separator Height="5"/>
             <Grid>
                 <!-- content -->
             </Grid>
         </StackPanel>
         <local:UserControlHome x:Name="ucHome" Grid.Row="1" Visibility="Visible">
-            
+
         </local:UserControlHome>
-        <local:UserControlHeader x:Name="ucHeader" Visibility="Collapsed">
-            
-        </local:UserControlHeader>
     </Grid>
 </Window>
