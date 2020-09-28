@@ -14,9 +14,6 @@
         <StackPanel Grid.Row="0">
             <Label Name="header" Height="25" Content="header" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightSkyBlue" />
             <Separator Height="5"/>
-            <Grid>
-                <!-- content -->
-            </Grid>
         </StackPanel>
         <local:UserControlHome x:Name="ucHome" Grid.Row="1" Visibility="Visible">
 
