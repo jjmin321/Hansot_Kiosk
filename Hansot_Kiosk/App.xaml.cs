@@ -13,5 +13,6 @@ namespace Hansot_Kiosk
     /// </summary>
     public partial class App : Application
     {
+       
     }
 }
