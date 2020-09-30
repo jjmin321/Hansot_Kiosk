@@ -1,4 +1,4 @@
-﻿using Hansot_Kiosk.Config;
+﻿using Hansot_Kiosk.Database;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,7 +16,7 @@ namespace Hansot_Kiosk
     {
         public App()
         {
-            DBConfig.DBConnection();
+            Database.Connect();
         }
     }
 }
