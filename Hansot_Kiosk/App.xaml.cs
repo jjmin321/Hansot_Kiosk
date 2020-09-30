@@ -16,7 +16,7 @@ namespace Hansot_Kiosk
     {
         public App()
         {
-            Database.Connect();
+            Database.Connection.Connect();
         }
     }
 }

@@ -32,5 +32,9 @@ namespace Hansot_Kiosk
             this.HansotVideo.Play();
         }
 
+        private void MoveToOrder(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MoveToOrder();
+        }
     }
 }

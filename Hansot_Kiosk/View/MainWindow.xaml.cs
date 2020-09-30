@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
@@ -29,9 +30,15 @@ namespace Hansot_Kiosk
             timer.Tick += timer_Tick;
             timer.Start();
         }
-        void timer_Tick(object sender, EventArgs e)
+        public void timer_Tick(object sender, EventArgs e)
         {
             header.Content = DateTime.Now.ToString("yyyy년 MM월 dd일 dddd tt HH : mm : ss");
+        }
+
+        public void MoveToOrder()
+        {
+            ucHome.Visibility = Visibility.Collapsed;
+            ucOrder.Visibility = Visibility.Visible;
         }
     }
 }

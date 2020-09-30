@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Config\DBConfig.cs" />
     <Compile Include="Database\Connection.cs" />
+    <Compile Include="Database\Select.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

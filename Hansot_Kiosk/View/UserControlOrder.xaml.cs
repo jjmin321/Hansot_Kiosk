@@ -18,16 +18,11 @@ namespace Hansot_Kiosk
     /// <summary>
     /// Order.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class Order : UserControl
+    public partial class UserControlOrder : UserControl
     {
-        public Order()
+        public UserControlOrder()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

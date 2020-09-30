@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hansot_Kiosk"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="Aqua">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.6*"/>
             <RowDefinition Height="9.4*"/>
@@ -15,8 +15,7 @@
             <Label Name="header" Height="25" Content="header" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightSkyBlue" />
             <Separator Height="5"/>
         </StackPanel>
-        <local:UserControlHome x:Name="ucHome" Grid.Row="1" Visibility="Visible">
-
-        </local:UserControlHome>
+        <local:UserControlHome x:Name="ucHome" Grid.Row="1" Visibility="Visible"/>
+        <local:UserControlOrder x:Name="ucOrder" Grid.Row="1" Visibility="Collapsed"/>
     </Grid>
 </Window>

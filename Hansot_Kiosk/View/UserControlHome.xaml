@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Hansot_Kiosk"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Aqua">
+    <Grid Background="AntiqueWhite">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="4*"/>
@@ -15,10 +15,11 @@
             <MediaElement Grid.Row="0" Name="HansotVideo" Stretch="Fill" VerticalAlignment="Top" UnloadedBehavior="Manual" MediaEnded="HansotVideoEnded" 
                   Source="C:\Users\user\source\repos\Hansot_Kiosk\Hansot_Kiosk\Static\뜨끈한 한솥_ 1월 한달 내내 초특가 할인! '블랙한솥데이 '.mp4">
             </MediaElement>
-            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <TextBlock Text="안녕하세요"/>
-                <TextBlock Text="반갑습니다"/>
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <TextBlock Text="안녕하세요. 주문을 원하시면 아래 주문버튼을 눌러주세요." TextAlignment="Center" FontSize="20"/>
+                <Button Click="MoveToOrder">주문하기</Button>           
             </StackPanel>
+            
         </Grid>
     </Grid>
 </UserControl>
