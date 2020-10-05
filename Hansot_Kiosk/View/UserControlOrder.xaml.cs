@@ -24,5 +24,9 @@ namespace Hansot_Kiosk
         {
             InitializeComponent();
         }
+        private void MoveToHome(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MoveToHome();
+        }
     }
 }

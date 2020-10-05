@@ -58,7 +58,7 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0 0 0 35" HorizontalAlignment="Right">
-                            <Button Width="100" Height="20">주문취소</Button>
+                            <Button Click="MoveToHome" Width="100" Height="20">주문취소</Button>
                             <Button Width="100" Height="20" Margin="10 0 0 0">주문하기</Button>
                         </StackPanel>
                     </Grid>
