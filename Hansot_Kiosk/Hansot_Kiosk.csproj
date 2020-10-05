@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Config\DBConfig.cs" />
+    <Compile Include="Config\StaticConfig.cs" />
     <Compile Include="Database\Connection.cs" />
     <Compile Include="Database\Select.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
