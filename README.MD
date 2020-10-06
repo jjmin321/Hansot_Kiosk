@@ -11,7 +11,8 @@
 3. »ó´ë¹æ ÄÚµå review  
 4. reveiwer°¡ merge
 
-### ¿¿
-1. View ¿¿¿ UserControl+¿¿¿ ¿¿ ¿¿¿¿¿¿¿ 
-2. MainWindow, ¿¿ ¿¿ ¿¿¿ ¿¿¿¿ ¿¿ ¿¿¿¿ ¿¿¿
+### À¯ÀÇ»çÇ×
+1. ViewÆú´õ¿¡ UserControl+ÀÛ¾÷ÇÒ ÆÄÀÏ¸í À¸·Î »ç¿ëÀÚÁ¤ÀÇÄÁÆ®·Ñ ¸¸µé±â
+2. MainWindow´Â °ÇµéÁö ¸»±â (ÅëÀÏ¼ºÀ» À§ÇØ Á¦Á¤¹ÎÀÌ ÇÔ)
+3. ÄÁÆ®·Ñ º° ÀÌµ¿ ·ÎÁ÷Àº ¸¸µéÇÊ¿ä ¾øÀÌ °¢ UserControl¸¸ ¸¸µé¸é µÊ(ÅëÀÏ¼ºÀ» À§ÇØ Á¦Á¤¹ÎÀÌ ÇÔ)
 
