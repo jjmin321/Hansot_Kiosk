@@ -13,20 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Hansot_Kiosk
+namespace Hansot_Kiosk.View
 {
     /// <summary>
-    /// Order.xaml에 대한 상호 작용 논리
+    /// UserControlPayByQR.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class UserControlOrder : UserControl
+    public partial class UserControlPayByQR : UserControl
     {
-        public UserControlOrder()
+        public UserControlPayByQR()
         {
             InitializeComponent();
-        }
-        private void MoveToHome(object sender, RoutedEventArgs e)
-        {
-            ((MainWindow)System.Windows.Application.Current.MainWindow).MoveToHome();
         }
     }
 }

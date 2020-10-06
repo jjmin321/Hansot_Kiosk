@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,13 @@ namespace Hansot_Kiosk
     /// </summary>
     public partial class UserControlHome : UserControl
     {
+
+        public string Commercial = Config.StaticConfig.GetCommercialRoute();
+
         public UserControlHome()
         {
             InitializeComponent();
+            HansotVideo.Source = new Uri(Commercial);
         }
 
         private void HansotVideoEnded(object sender, RoutedEventArgs e)

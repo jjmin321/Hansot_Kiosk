@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,10 @@ namespace Hansot_Kiosk.Database
         public static MySqlConnection connection = null;
         public static void Connect()
         {
-            //string Attributes = Config.DBConfig.GetDBInfo();
-            //connection = new MySqlConnection(Attributes);
-            //connection.Open();
+            string Attributes = Config.DBConfig.GetDBInfo();
+            connection = new MySqlConnection(Attributes);
+            connection.Open();
+            Debug.WriteLine("Connect Success");
         }
     }
 }

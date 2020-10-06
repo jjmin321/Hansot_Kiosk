@@ -40,5 +40,11 @@ namespace Hansot_Kiosk
             ucHome.Visibility = Visibility.Collapsed;
             ucOrder.Visibility = Visibility.Visible;
         }
+
+        public void MoveToHome()
+        {
+            ucOrder.Visibility = Visibility.Collapsed;
+            ucHome.Visibility = Visibility.Visible;
+        }
     }
 }
