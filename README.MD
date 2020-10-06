@@ -8,5 +8,10 @@
 
 1. º»ÀÎ ÀÛ¾÷  
 2. develop ºê·£Ä¡·Î PR  
-2. »ó´ë¹æ ÄÚµå review  
-3. reveiwer°¡ merge  
+3. »ó´ë¹æ ÄÚµå review  
+4. reveiwer°¡ merge
+
+### ¿¿
+1. View ¿¿¿ UserControl+¿¿¿ ¿¿ ¿¿¿¿¿¿¿ 
+2. MainWindow, ¿¿ ¿¿ ¿¿¿ ¿¿¿¿ ¿¿ ¿¿¿¿ ¿¿¿
+
