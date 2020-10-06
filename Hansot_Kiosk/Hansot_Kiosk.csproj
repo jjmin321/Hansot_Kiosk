@@ -73,11 +73,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\UserControlPay.xaml.cs">
+      <DependentUpon>UserControlPay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControlPayByMoney.xaml.cs">
       <DependentUpon>UserControlPayByMoney.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControlPayByQR.xaml.cs">
       <DependentUpon>UserControlPayByQR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControlPlace.xaml.cs">
+      <DependentUpon>UserControlPlace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControlSelectTable.xaml.cs">
+      <DependentUpon>UserControlSelectTable.xaml</DependentUpon>
     </Compile>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,11 +100,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\UserControlPay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\UserControlPayByMoney.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserControlPayByQR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControlPlace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControlSelectTable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
