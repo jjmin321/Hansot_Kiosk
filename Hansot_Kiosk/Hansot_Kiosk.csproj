@@ -121,12 +121,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\UserControlOrder\UserControlOrderList.xaml.cs">
-      <DependentUpon>UserControlOrderList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControlOrder\UserControlOrderMenu.xaml.cs">
-      <DependentUpon>UserControlOrderMenu.xaml</DependentUpon>
-    </Compile>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,14 +132,6 @@
     <Page Include="View\UserControlOrder.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\UserControlOrder\UserControlOrderList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UserControlOrder\UserControlOrderMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

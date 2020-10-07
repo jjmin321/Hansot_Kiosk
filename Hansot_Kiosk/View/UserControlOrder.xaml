@@ -5,19 +5,135 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hansot_Kiosk"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid>
-        <Grid Background="White">
-            <Grid>
-                <StackPanel Orientation="Horizontal">
-                    <Frame Name="frame_content"
-                   Source="/View/UserControlOrder/UserControlOrderMenu.xaml" 
-                   NavigationUIVisibility="Hidden"/>
-                    <Frame Name="frame_content1"
-                   Source="/View/UserControlOrder/UserControlOrderList.xaml" 
-                   NavigationUIVisibility="Hidden"/>
-                </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.3*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="MaxHeight" Value="50"/>
+                                <Setter Property="MaxWidth" Value="400"/>
+                                <Setter Property="MinWidth" Value="300"/>
+                                <Setter Property="FontSize" Value="30" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <Button >도시락</Button>
+                        <Button Margin="2 0 0 0">덮밥</Button>
+                        <Button Margin="2 0 0 0">음료수</Button>
+                    </StackPanel>
+                    </Grid>
                 </Grid>
+
+                <Grid Grid.Row="1">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="MinWidth" Value="250"/>
+                                <Setter Property="MinHeight" Value="250"/>
+                                <Setter Property="FontSize" Value="30"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition Height="3*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <StackPanel Orientation="Horizontal" 
+                                        HorizontalAlignment="Center"
+                                        MinHeight="100">
+
+                                    <Button  Margin="0 2 2 2 ">ㅇㅇ도시락</Button>
+                                    <Button  Margin="0 2 2 2 ">맛있는도시락</Button>
+                                    <Button  Margin="0 2 2 2 ">ㅁㄴㅇㄹ</Button>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Row="1" 
+                              HorizontalAlignment="Center"
+                              MinHeight="100">
+                                <StackPanel Orientation="Horizontal">
+                                    
+                                    <Button  Margin="0 2 2 2 ">ㅁㄴㅇㄹ</Button>
+                                    <Button  Margin="0 2 2 2 ">ㅁㄴㅇㄹ</Button>
+                                    <Button  Margin="0 2 2 2 ">ㅁㄴㅇㄹ</Button>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Row="2"
+                              HorizontalAlignment="Center"
+                              MinHeight="100">
+                                <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                    <Button  Margin="0 2 2 2 ">ㅁㄴㅇㄹ</Button>
+                                    <Button  Margin="0 2 2 2 ">ㅁㄴㅇㄹ</Button>
+                                    <Button  Margin="0 2 2 2 ">ㅁㄴㅇㄹ</Button>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Width="250" Height="50" Margin="0 2 2 2 " FontSize="30">이전</Button>
+                        <Button Width="250" Height="50" Margin="0 2 2 2 " FontSize="30">다음</Button>
+                    </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid>
+                        <StackPanel Orientation="Vertical" >
+                            <Grid >
+                                <ListView HorizontalAlignment="Right" Width="800" Height="420" Margin="0 0 10 0"></ListView>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Button HorizontalAlignment="Right" Width="300" Height="50" FontSize="30" Margin="0 10 10 0 ">모두 삭제</Button>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0 0 10 35" HorizontalAlignment="Right">
+                        <Button Width="300" Height="50" FontSize="30">주문취소</Button>
+                        <Button Width="300" Height="50"  FontSize="30">주문하기</Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>
