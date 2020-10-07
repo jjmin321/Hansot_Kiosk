@@ -22,12 +22,9 @@ namespace Hansot_Kiosk
     public partial class UserControlHome : UserControl
     {
 
-        public string Commercial = Config.StaticConfig.GetCommercialRoute();
-
         public UserControlHome()
         {
             InitializeComponent();
-            HansotVideo.Source = new Uri(Commercial);
         }
 
         private void HansotVideoEnded(object sender, RoutedEventArgs e)
