@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Hansot_Kiosk.View
 {
-        public enum Category
-        {
-            SPECIAL,
-            PRIMIUM,
-            WAPPER,
-        }
+    public enum Category
+    {
+        SPECIAL,
+        PRIMIUM,
+        WAPPER,
+    }
 }

@@ -33,7 +33,7 @@ namespace Hansot_Kiosk
 
             new Food(){ category = Category.WAPPER, name = "콜라", imagePath = @"/Assets/와퍼.png" },
             new Food(){ category = Category.WAPPER, name = "사이다", imagePath = @"/Assets/불고기와퍼.png" },
-            new Food(){ category = Category.WAPPER, name = "ㅁㄴㅇㄹ", imagePath = @"/Assets/치즈와퍼.png" },
+            new Food(){ category = Category.WAPPER, name = "", imagePath = @"/Assets/치즈와퍼.png" },
         };
 
         public UserControlOrder()
@@ -43,6 +43,7 @@ namespace Hansot_Kiosk
             this.FontFamily = new System.Windows.Media.FontFamily("배달의민족 도현");
 
             this.Loaded += MainWindow_Loaded;
+
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
