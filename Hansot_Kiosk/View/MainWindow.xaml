@@ -15,6 +15,9 @@
             <Label Name="header" Height="25" Content="header" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightSkyBlue" />
             <Separator Height="5"/>
         </StackPanel>
+        <Button Click="" HorizontalAlignment="Right" VerticalAlignment="Center" Width="20" Height="20" BorderThickness="0">
+            <Image Source="../Static/hansot.jpg"/>
+        </Button>
         <local:UserControlHome x:Name="ucHome" Grid.Row="1" Visibility="Visible"/>
         <local:UserControlOrder x:Name="ucOrder" Grid.Row="1" Visibility="Collapsed"/>
     </Grid>
