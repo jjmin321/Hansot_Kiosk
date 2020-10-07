@@ -8,17 +8,18 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.6*"/>
-            <RowDefinition Height="9.4*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="9.5*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Label Name="header" Height="25" Content="header" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightSkyBlue" />
-            <Separator Height="5"/>
-        </StackPanel>
-        <Button Click="MoveToHome" HorizontalAlignment="Right" VerticalAlignment="Center" Width="20" Height="20" BorderThickness="0">
-            <Image Source="../Static/hansot.jpg"/>
-        </Button>
-        <local:UserControlHome x:Name="ucHome" Grid.Row="1" Visibility="Visible"/>
-        <local:UserControlOrder x:Name="ucOrder" Grid.Row="1" Visibility="Collapsed"/>
+        <Grid Grid.Row="0">
+            <Label Name="header" MinHeight="22.5" MaxHeight="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Red" />
+                <Button Click="MoveToHome" HorizontalAlignment="Right" BorderThickness="0">
+                    <Image Name="HomeBtn" Source="../Static/Hansot.png"/>
+                </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <local:UserControlHome x:Name="ucHome" Visibility="Visible"/>
+            <local:UserControlOrder x:Name="ucOrder" Visibility="Collapsed"/>
+        </Grid>
     </Grid>
 </Window>

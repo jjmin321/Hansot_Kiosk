@@ -57,7 +57,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Config\DBConfig.cs" />
-    <Compile Include="Config\StaticConfig.cs" />
     <Compile Include="Database\Connection.cs" />
     <Compile Include="Database\Select.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
@@ -148,6 +147,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Static\Hansot.png" />
     <Content Include="Static\뜨끈한 한솥_ 1월 한달 내내 초특가 할인! %27블랙한솥데이 %27.mp4" />
   </ItemGroup>
   <ItemGroup>
