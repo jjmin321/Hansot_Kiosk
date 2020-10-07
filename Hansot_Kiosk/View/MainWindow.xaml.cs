@@ -35,13 +35,13 @@ namespace Hansot_Kiosk
             header.Content = DateTime.Now.ToString("yyyy년 MM월 dd일 dddd tt HH : mm : ss");
         }
 
-        public void MoveToOrder()
+        public void MoveToOrder(object sender, RoutedEventArgs e)
         {
             ucHome.Visibility = Visibility.Collapsed;
             ucOrder.Visibility = Visibility.Visible;
         }
 
-        public void MoveToHome()
+        public void MoveToHome(object sender, RoutedEventArgs e)
         {
             ucOrder.Visibility = Visibility.Collapsed;
             ucHome.Visibility = Visibility.Visible;
