@@ -39,7 +39,7 @@ namespace Hansot_Kiosk
 
         private void MoveToOrder(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)System.Windows.Application.Current.MainWindow).MoveToOrder();
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MoveToOrder(sender, e);
         }
     }
 }
