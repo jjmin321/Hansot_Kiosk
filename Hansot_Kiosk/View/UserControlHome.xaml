@@ -17,9 +17,8 @@
             </MediaElement>
             <StackPanel Grid.Row="1" Orientation="Vertical">
                 <TextBlock Text="안녕하세요. 주문을 원하시면 아래 주문버튼을 눌러주세요." TextAlignment="Center" FontSize="20"/>
-                <Button Click="MoveToOrder">주문하기</Button>           
+                <Button Click="MoveToOrder" Width="100" Background="Blue" Foreground="White">주문하기</Button>           
             </StackPanel>
-            
         </Grid>
     </Grid>
 </UserControl>
