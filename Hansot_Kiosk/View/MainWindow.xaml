@@ -20,6 +20,11 @@
         <Grid Grid.Row="1">
             <local:UserControlHome x:Name="ucHome" Visibility="Visible"/>
             <local:UserControlOrder x:Name="ucOrder" Visibility="Collapsed"/>
+            <local:UserControlPay x:Name="ucPay" Visibility="Collapsed"/>
+            <local:UserControlPlace x:Name="ucPlace" Visibility="Collapsed"/>
+            <local:UserControlSelectTable x:Name="ucSelectTable" Visibility="Collapsed"/>
+            <local:UserControlPayByMoney x:Name="ucPayByMoney" Visibility="Collapsed"/>
+            <local:UserControlPayByQR x:Name="ucPayByQR" Visibility="Collapsed"/>
         </Grid>
     </Grid>
 </Window>
