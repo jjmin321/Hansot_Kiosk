@@ -83,10 +83,10 @@
                                                     <Trigger Property="IsSelected"
                                                  Value="true">
                                                         <Setter Property="Foreground"
-                                                    Value="#E22219" />
+                                                    Value="Blue" />
                                                         <Setter TargetName="UnderBd"
                                                     Property="BorderBrush"
-                                                    Value="#E22219" />
+                                                    Value="Blue" />
                                                     </Trigger>
                                                     <Trigger Property="IsMouseOver"
                                                  Value="true">
@@ -105,9 +105,9 @@
                             <ListBoxItem>음료수</ListBoxItem>
                         </ListBox>
                     </Grid>
-
-                    <Grid Grid.Row="1">
-                        <ListBox x:Name="lbMenus"
+                </Grid>
+                <Grid Grid.Row="1">
+                    <ListBox x:Name="lbMenus"
                      Margin="150,0,0,0"
                      FontSize="16"
                      FontWeight="SemiBold"
@@ -115,26 +115,25 @@
                      BorderBrush="Transparent"
                      ScrollViewer.VerticalScrollBarVisibility="Disabled"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                            <ListBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <!--<WrapPanel />-->
-                                    <UniformGrid Columns="2" />
-                                </ItemsPanelTemplate>
-                            </ListBox.ItemsPanel>
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Width="250"
-                                    Height="250">
-                                        <Image Source="{Binding imagePath}" />
-                                        <TextBlock Text="{Binding name}"
-                                       Margin="0,24,0,0"
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel  Margin="0 0 0 0" Width="250" >
+                                    <Image Source="{Binding imagePath}"
+                                           HorizontalAlignment="Center"
+                                           />
+                                    <TextBlock Text="{Binding name}"
                                        HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </Grid>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Grid>
+
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -148,9 +147,8 @@
                     </Grid>
                 </Grid>
             </Grid>
+            
             <Grid Grid.Column="1">
-                
-
                 <Grid.RowDefinitions>
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="1*"/>

@@ -8,8 +8,8 @@ namespace Hansot_Kiosk.View
 {
     public enum Category
     {
-        SPECIAL,
-        PRIMIUM,
-        WAPPER,
+        lunchBox,
+        RiceBowl,
+        juice,
     }
 }

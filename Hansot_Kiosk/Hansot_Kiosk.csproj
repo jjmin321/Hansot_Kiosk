@@ -198,6 +198,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Static\불고기도시락.jpg" />
+    <Resource Include="Static\새우튀김도시락.png" />
+    <Resource Include="Static\새우튀김스테이크도시락.png" />
+    <Resource Include="Static\참치마요덮밥.jpg" />
+    <Resource Include="Static\참치비빔덮밥.jpg" />
+    <Resource Include="Static\치킨마요덮밥.jpg" />
+    <Resource Include="Static\칠성사이다.jpg" />
+    <Resource Include="Static\콜라.jpg" />
     <Resource Include="Static\Hansot.png" />
     <Content Include="Static\뜨끈한 한솥_ 1월 한달 내내 초특가 할인! %27블랙한솥데이 %27.mp4" />
   </ItemGroup>

@@ -23,17 +23,16 @@ namespace Hansot_Kiosk
     {
         private List<Food> lstFood = new List<Food>()
         {
-            new Food(){ category = Category.SPECIAL, name = "ㅇㅇ도시락", imagePath = @"/Assets/기네스머쉬룸와퍼.png" },
-            new Food(){ category = Category.SPECIAL, name = "xx도시락", imagePath = @"/Assets/기네스와퍼.png" },
-            new Food(){ category = Category.SPECIAL, name = "asdf도시락", imagePath = @"/Assets/기네스콰트로치즈와퍼.png" },
+            new Food(){ category = Category.lunchBox, name = "불고기도시락", imagePath = @"/Static/불고기도시락.jpg" },
+            new Food(){ category = Category.lunchBox, name = "새우튀김도시락", imagePath = @"/Static/새우튀김도시락.png" },
+            new Food(){ category = Category.lunchBox, name = "세우튀김스테이크도시락", imagePath = @"/Static/새우튀김스테이크도시락.png" },
 
-            new Food(){ category = Category.PRIMIUM, name = "김치덮밥", imagePath = @"/Assets/기네스와퍼팩1.png" },
-            new Food(){ category = Category.PRIMIUM, name = "불고기덮밥", imagePath = @"/Assets/기네스와퍼팩2.png" },
-            new Food(){ category = Category.PRIMIUM, name = "ㅁㄴㅇ덮밥", imagePath = @"/Assets/기네스와퍼팩3.png" },
+            new Food(){ category = Category.RiceBowl, name = "참치마요덮밥", imagePath = @"/Static/참치마요덮밥.jpg" },
+            new Food(){ category = Category.RiceBowl, name = "참치비빔덮밥", imagePath = @"/Static/참치비빔덮밥.jpg" },
+            new Food(){ category = Category.RiceBowl, name = "치킨마요덮밥", imagePath = @"/Static/치킨마요덮밥.jpg" },
 
-            new Food(){ category = Category.WAPPER, name = "콜라", imagePath = @"/Assets/와퍼.png" },
-            new Food(){ category = Category.WAPPER, name = "사이다", imagePath = @"/Assets/불고기와퍼.png" },
-            new Food(){ category = Category.WAPPER, name = "", imagePath = @"/Assets/치즈와퍼.png" },
+            new Food(){ category = Category.juice, name = "콜라", imagePath = @"/Static/콜라.jpg" },
+            new Food(){ category = Category.juice, name = "사이다", imagePath = @"/Static/칠성사이다.jpg" },
         };
 
         public UserControlOrder()
