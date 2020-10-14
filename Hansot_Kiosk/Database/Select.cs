@@ -13,7 +13,7 @@ namespace Hansot_Kiosk.Database
         public List<object> SelectAll()
         {
             string sql = "select * from test";
-            MySqlCommand cmd = new MySqlCommand(sql, Database.Connection.connection);
+            MySqlCommand cmd = new MySqlCommand(sql, Connection.connection);
             //ExecuteNonQuery() : insert, update, delete 사용시
             //ExecuteReader() :select 사용시
             MySqlDataReader reader = cmd.ExecuteReader();
