@@ -24,7 +24,7 @@
                 <TextBlock Text="안녕하세요. 주문을 원하시면 아래 주문버튼을 눌러주세요." TextAlignment="Center" FontSize="20"/>
             </StackPanel>
             <Grid Grid.Row="2">
-                <Button Click="MoveToOrder" Width="100" Background="Green" Foreground="White">주문하기</Button>    
+                <Button Click="btnMoveToOrder" Width="100" Background="Green" Foreground="White">주문하기</Button>    
             </Grid>
             <Grid Grid.Row="4">
                 <Button Margin="2" Width="100" HorizontalAlignment="Right" Background="HotPink" Foreground="White">관리</Button>

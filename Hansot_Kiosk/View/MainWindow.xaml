@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Label Name="header" MinHeight="22.5" MaxHeight="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Red" />
-                <Button Click="MoveToHome" HorizontalAlignment="Right" BorderThickness="0">
+                <Button Click="btnMoveToHome" HorizontalAlignment="Right" BorderThickness="0">
                     <Image Name="HomeBtn" Source="../Static/Hansot.png"/>
                 </Button>
         </Grid>

@@ -59,5 +59,10 @@ namespace Hansot_Kiosk.View
         {
             header.Content = DateTime.Now.ToString("yyyy년 MM월 dd일 dddd tt HH : mm : ss");
         }
+
+        private void btnMoveToHome(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+        }
     }
 }
