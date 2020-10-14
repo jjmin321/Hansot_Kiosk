@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace Hansot_Kiosk
+namespace Hansot_Kiosk.View
 {
     /// <summary>
     /// MainWindow.xaml에 대한 상호 작용 논리

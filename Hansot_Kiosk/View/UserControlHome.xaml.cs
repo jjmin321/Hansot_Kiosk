@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Hansot_Kiosk
+namespace Hansot_Kiosk.View
 {
     /// <summary>
     /// UserControlHome.xaml에 대한 상호 작용 논리
