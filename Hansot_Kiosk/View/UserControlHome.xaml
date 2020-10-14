@@ -1,4 +1,5 @@
-﻿<UserControl x:Class="Hansot_Kiosk.View.UserControlHome"
+﻿<base:CustomControlModel xmlns:base="clr-namespace:UIStateManagerLibrary;assembly=UIStateManagerLibrary"
+             x:Class="Hansot_Kiosk.View.UserControlHome"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -26,8 +27,8 @@
                 <Button Click="MoveToOrder" Width="100" Background="Green" Foreground="White">주문하기</Button>    
             </Grid>
             <Grid Grid.Row="4">
-                <Button Click="MoveToOrder" Margin="2" Width="100" HorizontalAlignment="Right" Background="HotPink" Foreground="White">관리</Button>
+                <Button Margin="2" Width="100" HorizontalAlignment="Right" Background="HotPink" Foreground="White">관리</Button>
             </Grid>
         </Grid>
     </Grid>
-</UserControl>
+</base:CustomControlModel>

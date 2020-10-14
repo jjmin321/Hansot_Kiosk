@@ -13,13 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIStateManagerLibrary;
 
 namespace Hansot_Kiosk.View
 {
     /// <summary>
     /// Order.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class UserControlOrder : UserControl
+    public partial class UserControlOrder : CustomControlModel
     {
         private List<Food> lstFood = new List<Food>()
         {

@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using UIStateManagerLibrary;
 
 namespace Hansot_Kiosk
 {
@@ -14,6 +15,8 @@ namespace Hansot_Kiosk
     /// </summary>
     public partial class App : Application
     {
+        public static UIStateManager uIStateManager = new UIStateManager();
+
         public App()
         {
             Database.Connection.Connect();

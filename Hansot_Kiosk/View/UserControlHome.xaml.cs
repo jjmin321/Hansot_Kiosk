@@ -13,13 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIStateManagerLibrary;
 
 namespace Hansot_Kiosk.View
 {
     /// <summary>
     /// UserControlHome.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class UserControlHome : UserControl
+    public partial class UserControlHome : CustomControlModel
     {
 
         public UserControlHome()
