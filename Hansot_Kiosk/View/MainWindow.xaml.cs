@@ -14,6 +14,7 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using UIStateManagerLibrary;
 
 namespace Hansot_Kiosk.View
 {
@@ -25,26 +26,38 @@ namespace Hansot_Kiosk.View
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
         }
-        public void timer_Tick(object sender, EventArgs e)
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            SetCustomControls();
+            SetStartCustomControl();
+        }
+
+        private void SetCustomControls()
+        {
+            App.uIStateManager.SetCustomCtrl(ucHome, CustomControlType.HOME);
+            App.uIStateManager.SetCustomCtrl(ucOrder, CustomControlType.ORDER);
+            App.uIStateManager.SetCustomCtrl(ucPay, CustomControlType.PAY);
+            App.uIStateManager.SetCustomCtrl(ucPlace, CustomControlType.PLACE);
+            App.uIStateManager.SetCustomCtrl(ucSelectTable, CustomControlType.TABLE);
+            App.uIStateManager.SetCustomCtrl(ucPayByMoney, CustomControlType.PAYBYMONEY);
+            App.uIStateManager.SetCustomCtrl(ucPayByQR, CustomControlType.PAYBYQR);
+        }
+
+        private void SetStartCustomControl()
+        {
+            App.uIStateManager.PushCustomCtrl(ucHome);
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
         {
             header.Content = DateTime.Now.ToString("yyyy년 MM월 dd일 dddd tt HH : mm : ss");
-        }
-
-        public void MoveToOrder(object sender, RoutedEventArgs e)
-        {
-            ucHome.Visibility = Visibility.Collapsed;
-            ucOrder.Visibility = Visibility.Visible;
-        }
-
-        public void MoveToHome(object sender, RoutedEventArgs e)
-        {
-            ucOrder.Visibility = Visibility.Collapsed;
-            ucHome.Visibility = Visibility.Visible;
         }
     }
 }
