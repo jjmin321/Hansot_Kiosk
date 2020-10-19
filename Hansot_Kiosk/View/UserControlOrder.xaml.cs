@@ -47,7 +47,7 @@ namespace Hansot_Kiosk.View
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            lbCategory.SelectedIndex = 0; //처음 실행 시 첫번째 카테고리가 선택되도록 
+            lbCategory.SelectedIndex = 0; 
         }
 
         private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
