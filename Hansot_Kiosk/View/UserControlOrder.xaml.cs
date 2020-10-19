@@ -57,9 +57,14 @@ namespace Hansot_Kiosk.View
             Category category = (Category)lbCategory.SelectedIndex;
             lbMenus.ItemsSource = lstFood.Where(x => x.category == category).ToList();
         }
-        private void MoveToHome(object sender, RoutedEventArgs e)
+        private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)System.Windows.Application.Current.MainWindow).MoveToHome(sender, e);
+            App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+        }
+
+        private void btnMoveToPlace(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PLACE);
         }
     }
 }

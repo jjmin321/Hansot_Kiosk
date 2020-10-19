@@ -16,9 +16,6 @@ using UIStateManagerLibrary;
 
 namespace Hansot_Kiosk.View
 {
-    /// <summary>
-    /// UserControlSelectTable.xaml에 대한 상호 작용 논리
-    /// </summary>
     public partial class UserControlSelectTable : CustomControlModel
     {
         public UserControlSelectTable()

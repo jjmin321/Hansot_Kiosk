@@ -11,9 +11,9 @@
         <TextBlock Text="식사 장소를 선택하세요" 
                        Margin="-3,54,3,0"
                        FontSize="30" TextAlignment="Center"></TextBlock>
-        <Button Height="180" Width="180" Foreground="White"
+        <Button Click="btnMoveToSelectTable" Height="180" Width="180" Foreground="White"
                     Content="매장 식사" FontSize="30" Margin="188,137,432,133" Background="#FF008575"/>
-        <Button Width="180" Height="180" Foreground="White"
+        <Button Click="btnMoveToPay" Width="180" Height="180" Foreground="White"
                     Content="포장 주문" FontSize="30" Margin="424,137,196,133" Background="#FF008575"></Button>
         <Button Width="130" Height="50" Foreground="White"
                     Content="이전" FontSize="30" Margin="335,368,335,32" Background="#FF8D9188"/>
