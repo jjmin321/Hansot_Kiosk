@@ -12,13 +12,13 @@
         <DataGrid AutoGenerateColumns="False" Margin="43,150,476,139" HorizontalAlignment="Center" VerticalAlignment="Center" Width="281" Height="161">
 
         </DataGrid>
-        <Button Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center"
+        <Button Click="btnMoveToPayByMoney" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Margin="559,150,61,120" Content="현금"
                 FontSize="25" Background="#FF008575" Foreground="White"></Button>
-        <Button Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center"
+        <Button Click="btnMoveToPayByQR" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Margin="360,150,260,120" Content="카드"
                 FontSize="25" Background="#FF008575" Foreground="White"/>
-        <Button Margin="43,366,566,42" Content="이전" FontSize="23" HorizontalAlignment="Center" VerticalAlignment="Center"
+        <Button Click="btnMoveToPlace" Margin="43,366,566,42" Content="이전" FontSize="23" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Foreground="White" Background="#FF008575" Width="191" Height="42"/>
         <TextBlock Text="총금액 : " Margin="360,363,52,42" FontSize="30" HorizontalAlignment="Center" Width="388" Height="45" VerticalAlignment="Center"/>
     </Grid>

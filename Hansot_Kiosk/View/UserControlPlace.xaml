@@ -15,7 +15,7 @@
                     Content="매장 식사" FontSize="30" Margin="188,137,432,133" Background="#FF008575"/>
         <Button Click="btnMoveToPay" Width="180" Height="180" Foreground="White"
                     Content="포장 주문" FontSize="30" Margin="424,137,196,133" Background="#FF008575"></Button>
-        <Button Width="130" Height="50" Foreground="White"
+        <Button Click="btnMoveToOrder" Width="130" Height="50" Foreground="White"
                     Content="이전" FontSize="30" Margin="335,368,335,32" Background="#FF8D9188"/>
     </Grid>
 </base:CustomControlModel>

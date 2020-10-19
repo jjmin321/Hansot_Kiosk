@@ -22,5 +22,10 @@ namespace Hansot_Kiosk.View
         {
             InitializeComponent();
         }
+
+        private void btnMoveToPlace(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PLACE);
+        }
     }
 }

@@ -18,7 +18,7 @@
         <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="78,257,542,113" x:Name="Table_7" Content="7"></Button>
         <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="282,257,338,113" x:Name="Table_8" Content="8"></Button>
         <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="482,257,138,113" x:Name="Table_9" Content="9"></Button>
-        <Button Width="160" Height="40" Margin="78,380,562,30"
+        <Button Click="btnMoveToPlace" Width="160" Height="40" Margin="78,380,562,30"
                  Background="#FF008575" Foreground="White" 
                  HorizontalAlignment="Center" VerticalAlignment="Center" 
                   FontSize="20" Content="이전"></Button>

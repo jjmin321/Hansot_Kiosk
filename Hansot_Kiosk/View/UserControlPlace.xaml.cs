@@ -35,5 +35,10 @@ namespace Hansot_Kiosk.View
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.PAY);
         }
+
+        private void btnMoveToOrder(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.ORDER);
+        }
     }
 }

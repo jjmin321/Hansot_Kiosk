@@ -25,5 +25,20 @@ namespace Hansot_Kiosk.View
         {
             InitializeComponent();
         }
+
+        private void btnMoveToPlace(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PLACE);
+        }
+
+        private void btnMoveToPayByMoney(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PAYBYMONEY);
+        }
+
+        private void btnMoveToPayByQR(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PAYBYQR);
+        }
     }
 }
