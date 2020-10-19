@@ -25,5 +25,7 @@ namespace Hansot_Kiosk.View
         {
             InitializeComponent();
         }
+
+        private void webcam_QrDecoded(object sender, string e) { tbRecog.Text = e; }
     }
 }

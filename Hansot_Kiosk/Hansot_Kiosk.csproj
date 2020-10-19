@@ -214,6 +214,10 @@
       <Project>{6c8ddf0d-6bd6-41de-be05-20777b69a311}</Project>
       <Name>UIStateManagerLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KQRCode\KQRCode.csproj">
+      <Project>{62f1b37e-4bb2-442b-99a7-36279c5c0f3f}</Project>
+      <Name>KQRCode</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
