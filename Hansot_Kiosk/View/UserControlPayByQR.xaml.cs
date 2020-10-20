@@ -24,8 +24,14 @@ namespace Hansot_Kiosk.View
         public UserControlPayByQR()
         {
             InitializeComponent();
+            webcam.CameraIndex = 0;
         }
 
         private void webcam_QrDecoded(object sender, string e) { tbRecog.Text = e; }
+
+        private void btnMoveToPay(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PAY);
+        }
     }
 }

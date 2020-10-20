@@ -4,12 +4,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:qrcode="clr-namespace:KQRCode;assembly=KQRCode"            
+             xmlns:k="clr-namespace:KQRCode;assembly=KQRCode"         
              xmlns:local="clr-namespace:Hansot_Kiosk.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <qrcode:KQRWebCam x:Name="webcam" Margin="12" QrDecoded="webcam_QrDecoded" />
-        <TextBox x:Name="tbRecog" Margin="12,12,12,12" Text="인식된 값이 여기에 나온단다" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center"></TextBox>
+        <k:KQRWebCam x:Name="webcam" Margin="12" QrDecoded="webcam_QrDecoded" />
+        <Button Click="btnMoveToPay" Margin="43,366,566,42" Content="이전" FontSize="23" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Foreground="White" Background="#FF008575" Width="191" Height="42"/>
+        <TextBox x:Name="tbRecog" Margin="10,0,14,410" Text="인식된 값이 여기에 나온단다" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center"></TextBox>
     </Grid>
 </base:CustomControlModel>
