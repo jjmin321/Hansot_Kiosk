@@ -7,6 +7,23 @@
              xmlns:local="clr-namespace:Hansot_Kiosk.View"
              xmlns:Hansot_Kiosk="clr-namespace:Hansot_Kiosk" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid/>
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <Grid Background="White">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="현금 계산을 선택하셨습니다" TextAlignment="Center"
+                       FontSize="20" FontWeight="Regular"/>
+            <TextBlock Text="현금영수증카드를 제시해주세요" TextAlignment="Center"
+                       FontSize="20" FontWeight="ExtraBlack" />
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock x:Name="tbTotalMoney" TextAlignment="Center"
+                       FontSize="40" FontWeight="Heavy"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50">
+            <Button Click="btnMoveToPay" Width="180" Height="67"
+                Background="#FF008575" Foreground="White"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                FontSize="20" Content="이전"></Button>
+        </StackPanel>
+    </Grid>
 </base:CustomControlModel>

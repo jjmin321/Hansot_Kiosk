@@ -24,6 +24,13 @@ namespace Hansot_Kiosk.View
         public UserControlPayByMoney()
         {
             InitializeComponent();
+            double totalMoney = 15236236236236;
+            tbTotalMoney.Text = "총 금액: " + String.Format("{0:#,0}", totalMoney) + "원";
+        }
+
+        private void btnMoveToPay(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PAY);
         }
     }
 }

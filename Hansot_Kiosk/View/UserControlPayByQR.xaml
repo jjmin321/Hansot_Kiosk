@@ -21,6 +21,12 @@
         </StackPanel>
         <k:KQRWebCam x:Name="webcam" QrDecoded="webcam_QrDecoded"
                           Width="250" Height="250"/>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="50">
+            <Button Click="btnMoveToPay" Width="180" Height="67"
+                Background="#FF008575" Foreground="White"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                FontSize="20" Content="이전"></Button>
+        </StackPanel>
         <TextBox x:Name="tbRecog"
                  Margin="12,12,12,12"
                  Text="인식된 QR코드 값"
