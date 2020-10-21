@@ -25,6 +25,8 @@ namespace Hansot_Kiosk.View
         {
             InitializeComponent();
             webcam.CameraIndex = 0;
+            double totalMoney = 15236236236236;
+            tbTotalMoney.Text = "총 금액: " + String.Format("{0:#,0}", totalMoney) + "원";
         }
 
         private void webcam_QrDecoded(object sender, string e) { tbRecog.Text = e; }

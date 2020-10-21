@@ -7,11 +7,28 @@
              xmlns:k="clr-namespace:KQRCode;assembly=KQRCode"         
              xmlns:local="clr-namespace:Hansot_Kiosk.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <k:KQRWebCam x:Name="webcam" Margin="12" QrDecoded="webcam_QrDecoded" />
-        <Button Click="btnMoveToPay" Margin="43,366,566,42" Content="이전" FontSize="23" HorizontalAlignment="Center" VerticalAlignment="Center"
-                Foreground="White" Background="#FF008575" Width="191" Height="42"/>
-        <TextBox x:Name="tbRecog" Margin="10,0,14,410" Text="인식된 값이 여기에 나온단다" Height="30" VerticalAlignment="Bottom" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center"></TextBox>
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <Grid Background="White">
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock Text="카드 계산을 선택하셨습니다" TextAlignment="Center"
+                       FontSize="20" FontWeight="Regular"/>
+            <TextBlock Text="카메라에 QR코드를 인식해주세요." TextAlignment="Center"
+                       FontSize="20" FontWeight="ExtraBlack" />
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock x:Name="tbTotalMoney" TextAlignment="Center"
+                       FontSize="40" FontWeight="Heavy"/>
+        </StackPanel>
+        <k:KQRWebCam x:Name="webcam" QrDecoded="webcam_QrDecoded"
+                          Width="250" Height="250"/>
+        <TextBox x:Name="tbRecog"
+                 Margin="12,12,12,12"
+                 Text="인식된 QR코드 값"
+                 Height="30"
+                 VerticalAlignment="Bottom"
+                 HorizontalContentAlignment="Stretch"
+                 VerticalContentAlignment="Center">
+        </TextBox>
     </Grid>
+
 </base:CustomControlModel>
