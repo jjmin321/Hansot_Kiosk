@@ -11,5 +11,8 @@ namespace Hansot_Kiosk.View
         public Category category { get; set; }
         public string imagePath { get; set; }
         public string name { get; set; }
+        public int price { get; set; }
+        public int count { get; set; }
+
     }
 }
