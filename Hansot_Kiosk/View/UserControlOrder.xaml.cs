@@ -23,9 +23,11 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlOrder : CustomControlModel
     {
+        private int totalPrice = 0;
+
         private List<Food> calcaulation = new List<Food>()
         {
-                        
+
         };
 
         private List<Food> lstFood = new List<Food>()
@@ -49,11 +51,11 @@ namespace Hansot_Kiosk.View
             this.FontFamily = new System.Windows.Media.FontFamily("배달의민족 도현");
             this.Loaded += MainWindow_Loaded;
             this.listView.ItemsSource = calcaulation;
-            
+            tbTotalPrice.Text = totalPrice + "";
         }
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            lbCategory.SelectedIndex = 0; 
+            lbCategory.SelectedIndex = 0;
         }
 
         private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -70,10 +72,25 @@ namespace Hansot_Kiosk.View
             if (food != null)
             {
                 calcaulation.Add(food);
+                int selectMenuPrice = 0;
+                for (int i = 0; i < calcaulation.Count; i++)
+                {
+                    selectMenuPrice = calcaulation[i].price;//지금 가져온 메뉴
+                    
+                }
+                int intTbTotalPrice = int.Parse(tbTotalPrice.Text);//원래 있던 메뉴
+                tbTotalPrice.Text = intTbTotalPrice + selectMenuPrice + "";
                 listView.Items.Refresh();
             }
         }
+        private void plusThisMenu(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private void MinusThisMenu(object sender, RoutedEventArgs e)
+        {
 
+        }
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
@@ -88,8 +105,11 @@ namespace Hansot_Kiosk.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            totalPrice = 0;
             calcaulation.Clear();
             listView.Items.Refresh();
         }
+        
     }
 }
+    
