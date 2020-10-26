@@ -83,13 +83,25 @@ namespace Hansot_Kiosk.View
                 listView.Items.Refresh();
             }
         }
-        private void plusThisMenu(object sender, RoutedEventArgs e)
+        private void plusMinusThisMenu(object sender, RoutedEventArgs e)
         {
-            
-        }
-        private void MinusThisMenu(object sender, RoutedEventArgs e)
-        {
-
+            var name = (sender as System.Windows.Controls.Button).Name;
+            var food = ((System.Windows.Controls.ListViewItem)listView.ContainerFromElement(sender as System.Windows.Controls.Button)).Content as Food;
+            if (name == "plus")
+            {
+                food.count++;
+            }
+            else { 
+                if(food.count == 1)
+                {
+                    food.count = 0;
+                    Remove(food);
+                }
+                else
+                {
+                    food.count--;
+                }
+            }
         }
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
@@ -101,7 +113,26 @@ namespace Hansot_Kiosk.View
             App.uIStateManager.SwitchCustomControl(CustomControlType.PLACE);
         }
 
-       
+       public void Remove(Food food)
+        {
+            var itemSource = listView.ItemsSource as List<Food>;
+
+            int selectMenuPrice = 0;
+            for (int i = 0; i < calcaulation.Count; i++)
+            {
+                selectMenuPrice = calcaulation[i].price;//지금 가져온 메뉴
+
+            }
+            int intTbTotalPrice = int.Parse(tbTotalPrice.Text);//원래 있던 메뉴
+            tbTotalPrice.Text = intTbTotalPrice - selectMenuPrice + "";
+
+            itemSource.Remove(food);
+
+        }
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

@@ -121,9 +121,11 @@
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel  Margin="0 0 0 0" Width="250" >
+                                <StackPanel  Margin="0 0 0 0" Width="250">
                                     <Image Source="{Binding imagePath}"
                                            HorizontalAlignment="Center"
+                                           Height="200"
+                                           Width="200"
                                            />
                                     <TextBlock Text="{Binding name}"
                                        HorizontalAlignment="Center" />
@@ -163,16 +165,17 @@
                             <ListView Name="listView" HorizontalAlignment="Right" Width="900" Height="500" Margin="0 0 10 0" VerticalAlignment="Bottom" >
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="상품명" Width="300" DisplayMemberBinding="{Binding name}"></GridViewColumn>
-                                        <GridViewColumn Header="가격" Width="300" DisplayMemberBinding="{Binding price}"></GridViewColumn>
+                                        <GridViewColumn Header="상품명" Width="280" DisplayMemberBinding="{Binding name}"></GridViewColumn>
+                                        <GridViewColumn Header="가격" Width="280" DisplayMemberBinding="{Binding price}"></GridViewColumn>
                                         <GridViewColumn Header="갯수" Width="290">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal">
                                                         <TextBlock Text="{Binding count}"></TextBlock>
                                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                                                            <Button Click="plusThisMenu"> + </Button>
-                                                            <Button Click="MinusThisMenu"> - </Button>
+                                                            <Button x:Name="plus" Click="plusMinusThisMenu"> + </Button>
+                                                            <Button x:Name="minus" Click="plusMinusThisMenu"> - </Button>
+                                                            <Button x:Name="delete" Click="Remove_Click">x</Button>
                                                         </StackPanel>
                                                     </StackPanel>
                                                 </DataTemplate>
