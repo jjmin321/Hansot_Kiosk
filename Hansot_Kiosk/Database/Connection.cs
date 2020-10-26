@@ -13,10 +13,10 @@ namespace Hansot_Kiosk.Database
         public static MySqlConnection connection = null;
         public static void Connect()
         {
-            //string Attributes = Config.DBConfig.GetDBInfo();
-            //connection = new MySqlConnection(Attributes);
-            //connection.Open();
-            //Debug.WriteLine("Connect Success");
+            string Attributes = Config.DBConfig.GetDBInfo();
+            connection = new MySqlConnection(Attributes);
+            connection.Open();
+            Debug.WriteLine("Connect Success");
         }
     }
 }
