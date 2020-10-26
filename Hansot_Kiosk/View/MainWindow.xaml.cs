@@ -48,6 +48,7 @@ namespace Hansot_Kiosk.View
             App.uIStateManager.SetCustomCtrl(ucSelectTable, CustomControlType.TABLE);
             App.uIStateManager.SetCustomCtrl(ucPayByMoney, CustomControlType.PAYBYMONEY);
             App.uIStateManager.SetCustomCtrl(ucPayByQR, CustomControlType.PAYBYQR);
+            App.uIStateManager.SetCustomCtrl(ucPayResult, CustomControlType.PAYRESULT);
         }
 
         private void SetStartCustomControl()

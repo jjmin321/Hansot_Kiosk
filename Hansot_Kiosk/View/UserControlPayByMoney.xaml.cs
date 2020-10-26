@@ -30,7 +30,7 @@ namespace Hansot_Kiosk.View
 
         private void btnMoveToPay(object sender, RoutedEventArgs e)
         {
-            App.uIStateManager.SwitchCustomControl(CustomControlType.PAY);
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
         }
     }
 }

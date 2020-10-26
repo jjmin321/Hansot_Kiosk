@@ -131,6 +131,9 @@
     <Compile Include="View\UserControlPayByQR.xaml.cs">
       <DependentUpon>UserControlPayByQR.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControlPayResult.xaml.cs">
+      <DependentUpon>UserControlPayResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControlPlace.xaml.cs">
       <DependentUpon>UserControlPlace.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserControlPayByQR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControlPayResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
