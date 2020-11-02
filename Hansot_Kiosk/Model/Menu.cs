@@ -11,6 +11,8 @@ namespace Hansot_Kiosk.Model
         /// <summary>
         /// 카테고리명
         /// </summary>
+        /// 
+        public int Idx { get; set; }
         public String Category { get; set; }
 
         /// <summary>
@@ -26,6 +28,6 @@ namespace Hansot_Kiosk.Model
         /// <summary>
         /// 음식 이미지 경로
         /// </summary>
-        public String ImagePath { get; set; }
+        public String Image { get; set; }
     }
 }
