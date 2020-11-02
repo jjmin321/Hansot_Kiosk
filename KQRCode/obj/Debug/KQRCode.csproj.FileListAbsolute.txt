@@ -40,6 +40,7 @@ C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\bin\Debug\AForge.Video.xml
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\bin\Debug\AForge.Video.DirectShow.xml
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\bin\Debug\zxing.xml
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\bin\Debug\zxing.presentation.xml
+C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.csprojAssemblyReference.cache
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRWebCam.g.cs
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode_MarkupCompile.cache
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode_MarkupCompile.lref
@@ -49,4 +50,3 @@ C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.csproj.CoreCom
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.csproj.CopyComplete
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.dll
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.pdb
-C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.csprojAssemblyReference.cache

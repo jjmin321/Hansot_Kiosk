@@ -53,6 +53,9 @@
     <Reference Include="MySql.Data, Version=8.0.21.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.21\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Prism, Version=8.0.0.1909, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.8.0.0.1909\lib\net47\Prism.dll</HintPath>
+    </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
     </Reference>
@@ -106,7 +109,13 @@
     </ApplicationDefinition>
     <Compile Include="Config\DBConfig.cs" />
     <Compile Include="Database\Connection.cs" />
+    <Compile Include="Database\Dao\MenuDao.cs" />
+    <Compile Include="Database\Repository\MenuRepository.cs" />
     <Compile Include="Database\Select.cs" />
+    <Compile Include="Model\Menu.cs" />
+    <Compile Include="Model\Payment.cs" />
+    <Compile Include="Model\Total.cs" />
+    <Compile Include="ViewModel\PayViewModel.cs" />
     <Compile Include="View\Category.cs" />
     <Compile Include="View\Food.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
@@ -226,5 +235,6 @@
       <Name>KQRCode</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
