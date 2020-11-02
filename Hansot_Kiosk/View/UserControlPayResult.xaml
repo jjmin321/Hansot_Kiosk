@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel Background="#fcfcfc" 
                     Width="800" Height="840" Margin="0 0 0 0">
-            <TextBlock FontSize="30"  HorizontalAlignment="Left" Margin="50 20 0 0">회원명</TextBlock>
+            <TextBlock x:Name="tbUser" Text="{Binding QrCode, StringFormat=회원명 : {0}}" FontSize="30" HorizontalAlignment="Left" Margin="50 20 0 0"></TextBlock>
             <TextBlock FontSize="30" HorizontalAlignment="Left" Margin="50 20 0 0">총 금액</TextBlock>
             <TextBlock FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 100 0 0">주문번호</TextBlock>
             <Button Width="200" Height="100" HorizontalAlignment="Center" 

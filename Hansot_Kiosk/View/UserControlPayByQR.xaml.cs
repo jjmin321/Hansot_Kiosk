@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Hansot_Kiosk.Model;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +31,13 @@ namespace Hansot_Kiosk.View
             tbTotalMoney.Text = "총 금액: " + String.Format("{0:#,0}", totalMoney) + "원";
         }
 
-        private void webcam_QrDecoded(object sender, string e) { tbRecog.Text = e; }
+        private void webcam_QrDecoded(object sender, string e)
+        { 
+            tbRecog.Text = e;
+            Debug.WriteLine("qr찍힘" + e);
+            App.payViewModel.QrCode = e;
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
+        }
 
         private void btnMoveToPay(object sender, RoutedEventArgs e)
         {

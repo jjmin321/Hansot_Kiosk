@@ -26,13 +26,15 @@
                 HorizontalAlignment="Center" VerticalAlignment="Center"
                 FontSize="20" Content="이전"></Button>
         </StackPanel>
-        <TextBox x:Name="tbRecog"
+        <TextBox x:Name="tbBarcode"
                  Margin="12,12,12,12"
-                 Text="인식된 바코드 값"
+                 Text=""
                  Height="30"
                  VerticalAlignment="Bottom"
                  HorizontalContentAlignment="Stretch"
-                 VerticalContentAlignment="Center">
+                 VerticalContentAlignment="Center"
+                 TextChanged="tbBarcode_TextChanged"
+                 >
         </TextBox>
     </Grid>
 </base:CustomControlModel>

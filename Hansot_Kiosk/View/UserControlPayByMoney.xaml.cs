@@ -21,16 +21,28 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlPayByMoney : CustomControlModel
     {
+        public string userBarcode = "2112345678900";
         public UserControlPayByMoney()
         {
             InitializeComponent();
             double totalMoney = 15236236236236;
             tbTotalMoney.Text = "총 금액: " + String.Format("{0:#,0}", totalMoney) + "원";
+            tbBarcode.Focus();
         }
 
         private void btnMoveToPay(object sender, RoutedEventArgs e)
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
+        }
+
+        private void tbBarcode_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (userBarcode.Equals(tbBarcode.Text.ToString()))
+            {
+                MessageBox.Show("결제 완료되었습니다.");
+                App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
+            }
+            
         }
     }
 }
