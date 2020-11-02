@@ -1,4 +1,7 @@
 ﻿using Hansot_Kiosk.Database;
+using Hansot_Kiosk.Database.Dao;
+using Hansot_Kiosk.Model;
+using Hansot_Kiosk.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,9 +20,20 @@ namespace Hansot_Kiosk
     {
         public static UIStateManager uIStateManager = new UIStateManager();
 
+        public static List<Menu> Menus = new List<Menu>();
+
+        private MenuDao menuDao = new MenuDao();
+
+        public static List<Total> Totals = new List<Total>();
+
+        public static List<Payment> Payments = new List<Payment>();
+
+        public static PayViewModel payViewModel = new PayViewModel();
+
         public App()
         {
             Database.Connection.Connect();
+            Menus = menuDao.GetMenus();
         }
 
         DateTime StartTime = DateTime.Now;
