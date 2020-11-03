@@ -49,3 +49,4 @@ C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.csproj.CoreCom
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.csproj.CopyComplete
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.dll
 C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.pdb
+C:\Users\user\source\repos\Hansot_Kiosk\KQRCode\obj\Debug\KQRCode.csprojAssemblyReference.cache

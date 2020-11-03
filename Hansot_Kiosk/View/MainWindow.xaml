@@ -25,6 +25,7 @@
             <local:UserControlSelectTable x:Name="ucSelectTable" Visibility="Collapsed"/>
             <local:UserControlPayByMoney x:Name="ucPayByMoney" Visibility="Collapsed"/>
             <local:UserControlPayByQR x:Name="ucPayByQR" Visibility="Collapsed"/>
+            <local:UserControlPayResult x:Name="ucPayResult" Visibility="Collapsed"/>
         </Grid>
     </Grid>
 </Window>

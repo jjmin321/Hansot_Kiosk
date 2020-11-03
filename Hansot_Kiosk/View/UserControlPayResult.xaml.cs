@@ -17,20 +17,18 @@ using UIStateManagerLibrary;
 namespace Hansot_Kiosk.View
 {
     /// <summary>
-    /// UserControlPayByMoney.xaml에 대한 상호 작용 논리
+    /// UserControlPayResult.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class UserControlPayByMoney : CustomControlModel
+    public partial class UserControlPayResult : CustomControlModel
     {
-        public UserControlPayByMoney()
+        public UserControlPayResult()
         {
             InitializeComponent();
-            double totalMoney = 15236236236236;
-            tbTotalMoney.Text = "총 금액: " + String.Format("{0:#,0}", totalMoney) + "원";
         }
 
-        private void btnMoveToPay(object sender, RoutedEventArgs e)
+        private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
-            App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
+            App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
         }
     }
 }
