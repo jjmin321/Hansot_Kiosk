@@ -40,5 +40,15 @@ namespace Hansot_Kiosk.View
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.PAYBYQR);
         }
+
     }
+
+    public class FoodData
+    {
+        public string FoodName { get; set; }
+        public int FoodCount { get; set; }
+        public int FoodMoney { get; set; }
+    }
+
+
 }
