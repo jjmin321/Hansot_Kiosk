@@ -29,6 +29,11 @@ namespace Hansot_Kiosk.View
             //담겨지는 리스트
         };
 
+        private List<Food> seeList = new List<Food>()
+        {
+            //메뉴 정보가 담겨져있는 리스트
+        };
+
         private List<Food> lstFood = new List<Food>()
         {
             new Food(){ category = Category.lunchBox, name = "불고기도시락", count=0 ,price=3000, imagePath = @"/Static/불고기도시락.jpg" },
@@ -46,7 +51,7 @@ namespace Hansot_Kiosk.View
             InitializeComponent();
             this.FontFamily = new System.Windows.Media.FontFamily("배달의민족 도현");
             this.Loaded += MainWindow_Loaded;
-            this.listView.ItemsSource = calcaulation;
+            this.listView.ItemsSource = calcaulation; // listView 담겨지는 calcaulation 담겨지는 리스트 
 
             tbTotalPrice.Text = totalPrice + "";
         }
@@ -54,7 +59,6 @@ namespace Hansot_Kiosk.View
         {
             lbCategory.SelectedIndex = 0;
         }
-
         private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (lbCategory.SelectedIndex == -1) return;
@@ -64,54 +68,34 @@ namespace Hansot_Kiosk.View
         private void lbMenus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Food food = (Food)lbMenus.SelectedItem;
-            int flag = 0;
-            //if (food != null)
-            //{
-                
-            //    calcaulation.Add(food);
-            //    //food.count++;
-            //    //int selectMenuPrice = 0;
-            //    for (int i = 0; i < calcaulation.Count; i++)
-            //    {
-            //        if(food.name == calcaulation[i].name)
-            //        {
-            //            calcaulation[i].count++;
-            //            break;
-            //        }
-            //        //selectMenuPrice = calcaulation[i].price;//지금 가져온 메뉴
-            //    }
-            //    calculationPrice();
-
-            //    //int intTbTotalPrice = int.Parse(tbTotalPrice.Text);//원래 있던 메뉴
-            //    listView.Items.Refresh();
-            //}
-
-            for(int i = 0; i< calcaulation.Count; i++)
+            int flag = 0; // 이미 그 메뉴가 있으면 더이상 추가 안되게 
+            if (food != null)
             {
-                if(food.name == calcaulation[i].name)
+                for (int i = 0; i< calcaulation.Count; i++)
                 {
-                    calcaulation[i].count++;
-                    flag = 1;
-                    break;
-                }
-            }
-
-            
-            if (flag == 0)
-            {
-                calcaulation.Add(food);
-                for (int i = 0; i < calcaulation.Count; i++)
-                {
-                    if (food.name == calcaulation[i].name)
+                    if(food.name == calcaulation[i].name)
                     {
                         calcaulation[i].count++;
+                        flag = 1;
+                        break;
+                    }
+                }
+            
+                if (flag == 0)
+                {
+                    calcaulation.Add(food);
+                    for (int i = 0; i < calcaulation.Count; i++)
+                    {
+                        if (food.name == calcaulation[i].name)
+                        {
+                            calcaulation[i].count++;
+                        }
                     }
                 }
             }
             calculationPrice();
             listView.Items.Refresh();
         }
-
         private void plusMinusThisMenu(object sender, RoutedEventArgs e)
         {
             var name = (sender as System.Windows.Controls.Button).Name;
@@ -124,7 +108,6 @@ namespace Hansot_Kiosk.View
                     {
                         calcaulation[i].count++;
                         calculationPrice();
-
                     }
                 }
             }
@@ -137,21 +120,19 @@ namespace Hansot_Kiosk.View
                         if (food.count == 1)
                         {
                             calcaulation[i].count = 0;
-                            Remove(food);
                             calculationPrice();
-
+                            calcaulation.Remove(food);
+                            listView.Items.Refresh();
                         }
                         else
                         {
                             calcaulation[i].count--;
                             calculationPrice();
-
                         }
                     }
                 }
             }
             listView.Items.Refresh();
-
         }
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
@@ -161,36 +142,30 @@ namespace Hansot_Kiosk.View
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.PLACE);
         }
-        public void Remove(Food food)
-        {
-            
-        }
         private void calculationPrice()
         {
+            totalPrice = 0;
             for (int i = 0; i < calcaulation.Count; i++)
             {
-                if (calcaulation.Count - 1 == i)
-                {
                     totalPrice += calcaulation[i].price * calcaulation[i].count;
-                }
             }
-
-
             tbTotalPrice.Text = totalPrice + "";
-
-            //foreach ( Food food in calcaulation) {
-            //    totalPrice += food[i].price * food[i].count;
-            //}
         }
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
+            var food = ((System.Windows.Controls.ListViewItem)listView.ContainerFromElement(sender as System.Windows.Controls.Button)).Content as Food;
+            food.count = 0;
+            calcaulation.Remove(food);
+            listView.Items.Refresh();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void RemoveAll(object sender, RoutedEventArgs e)
         {
-            
             if(System.Windows.MessageBox.Show("선택한 메뉴를 모두 삭제하시겠습니까?", "안내", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
+                for (int i = 0; i < calcaulation.Count; i++)
+                {
+                    calcaulation[i].count = 0;
+                }
                 calcaulation.Clear();
                 totalPrice = 0;
                 
@@ -202,6 +177,5 @@ namespace Hansot_Kiosk.View
                 System.Windows.MessageBox.Show("취소되었습니다, 안내");
             }
         }
-
     }
 }
