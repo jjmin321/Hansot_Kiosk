@@ -124,6 +124,9 @@
     <Compile Include="View\UserControlHome.xaml.cs">
       <DependentUpon>UserControlHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControlLogin.xaml.cs">
+      <DependentUpon>UserControlLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControlOrder.xaml.cs">
       <DependentUpon>UserControlOrder.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,10 @@
     <Page Include="View\UserControlHome.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\UserControlLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserControlOrder.xaml">
       <Generator>MSBuild:Compile</Generator>

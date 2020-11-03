@@ -9,6 +9,14 @@ namespace Hansot_Kiosk.ViewModel
 {
     public class PayViewModel : BindableBase
     {
+        private int _totalMoney;
+
+        public int TotalMoney
+        {
+            get => _totalMoney;
+            set => SetProperty(ref _totalMoney, value);
+        }
+
         private string _qrCode;
         public string QrCode
         {

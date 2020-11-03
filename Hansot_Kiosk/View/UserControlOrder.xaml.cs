@@ -1,6 +1,7 @@
 ﻿using Hansot_Kiosk.View;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,8 @@ namespace Hansot_Kiosk.View
     /// <summary>
     /// Order.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class UserControlOrder : CustomControlModel
+    public partial class UserControlOrder : CustomControlModel, INotifyPropertyChanged
     {
-        private int totalPrice = 0;
 
         private List<Food> calcaulation = new List<Food>()
         {
@@ -52,11 +52,13 @@ namespace Hansot_Kiosk.View
             this.FontFamily = new System.Windows.Media.FontFamily("배달의민족 도현");
             this.Loaded += MainWindow_Loaded;
             this.listView.ItemsSource = calcaulation; // listView 담겨지는 calcaulation 담겨지는 리스트 
-
-            tbTotalPrice.Text = totalPrice + "";
+            OnPropertyChanged("");
         }
+
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            this.DataContext = App.payViewModel;
+            App.payViewModel.TotalMoney = 50;
             lbCategory.SelectedIndex = 0;
         }
         private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -144,12 +146,10 @@ namespace Hansot_Kiosk.View
         }
         private void calculationPrice()
         {
-            totalPrice = 0;
             for (int i = 0; i < calcaulation.Count; i++)
             {
-                    totalPrice += calcaulation[i].price * calcaulation[i].count;
+                    App.payViewModel.TotalMoney += calcaulation[i].price * calcaulation[i].count;
             }
-            tbTotalPrice.Text = totalPrice + "";
         }
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
@@ -167,7 +167,7 @@ namespace Hansot_Kiosk.View
                     calcaulation[i].count = 0;
                 }
                 calcaulation.Clear();
-                totalPrice = 0;
+                App.payViewModel.TotalMoney = 0;
                 
                 calculationPrice();
                 listView.Items.Refresh();
@@ -176,6 +176,17 @@ namespace Hansot_Kiosk.View
             {
                 System.Windows.MessageBox.Show("취소되었습니다, 안내");
             }
+
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(String name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
+
 }

@@ -196,9 +196,7 @@
                 <Grid Grid.Row="1">
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock  FontSize="40">총합:</TextBlock>
-                        <TextBlock  FontSize="40" Name="tbTotalPrice" Text="{Binding totalPrice}"></TextBlock>
-
+                        <TextBlock  FontSize="40" Name="tbTotalPrice" Text="{Binding TotalMoney, StringFormat=총합 : {0}}"></TextBlock>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="2">

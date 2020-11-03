@@ -18,7 +18,8 @@
                 </Button>
         </Grid>
         <Grid Grid.Row="1">
-            <local:UserControlHome x:Name="ucHome" Visibility="Visible"/>
+            <local:UserControlLogin x:Name="ucLogin" Visibility="Visible"/>
+            <local:UserControlHome x:Name="ucHome" Visibility="Collapsed"/>
             <local:UserControlOrder x:Name="ucOrder" Visibility="Collapsed"/>
             <local:UserControlPay x:Name="ucPay" Visibility="Collapsed"/>
             <local:UserControlPlace x:Name="ucPlace" Visibility="Collapsed"/>

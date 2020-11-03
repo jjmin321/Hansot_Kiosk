@@ -41,6 +41,7 @@ namespace Hansot_Kiosk.View
 
         private void SetCustomControls()
         {
+            App.uIStateManager.SetCustomCtrl(ucLogin, CustomControlType.LOGIN);
             App.uIStateManager.SetCustomCtrl(ucHome, CustomControlType.HOME);
             App.uIStateManager.SetCustomCtrl(ucOrder, CustomControlType.ORDER);
             App.uIStateManager.SetCustomCtrl(ucPay, CustomControlType.PAY);
@@ -53,7 +54,7 @@ namespace Hansot_Kiosk.View
 
         private void SetStartCustomControl()
         {
-            App.uIStateManager.PushCustomCtrl(ucHome);
+            App.uIStateManager.PushCustomCtrl(ucLogin);
         }
 
         private void timer_Tick(object sender, EventArgs e)
