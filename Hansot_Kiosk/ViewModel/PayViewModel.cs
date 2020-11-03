@@ -9,6 +9,14 @@ namespace Hansot_Kiosk.ViewModel
 {
     public class PayViewModel : BindableBase
     {
+        private string _user;
+
+        public string User
+        {
+            get => _user;
+            set => SetProperty(ref _user, value);
+        }
+
         private int _totalMoney;
 
         public int TotalMoney
