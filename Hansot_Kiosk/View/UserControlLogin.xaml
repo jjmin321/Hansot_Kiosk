@@ -8,23 +8,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid Background="White">
+        <TextBlock x:Name="ID" Text="아이디" FontSize="50" VerticalAlignment="Center" Height="80" Width="150" Margin="0, 50, 700, 300" />
+        <TextBlock x:Name="Pw" Text="비밀번호" FontSize="50" VerticalAlignment="Center" Height="80" Width="200" Margin="0, 50, 700, 50"/>
         <TextBox x:Name="tbId"
-                 Text="{Binding Id}"
                  FontSize="40"
                  Height="50"
                  Margin="600, 0, 600, 280"
                  VerticalAlignment="Center"                >
         </TextBox>
         <TextBox x:Name="tbPw"
-            Text="{Binding Pw}"
             FontSize="40"
             Height="50"
             Margin="600, 0, 600, 0"
             VerticalAlignment="Center"
                  />
-        <TextBlock Text="아이디" FontSize="50" VerticalAlignment="Center" Height="80" Width="150" Margin="0, 50, 700, 300" />
-        <TextBlock Text="비밀번호" FontSize="50" VerticalAlignment="Center" Height="80" Width="200" Margin="0, 50, 700, 50"/>
-        <TextBlock FontSize="30" HorizontalAlignment="Left" Margin="984,677,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="81" Width="221"/>
-        <CheckBox Content="자동로그인" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="400, 300, 0, 0"/>
+        <CheckBox x:Name="AutoLogin" Content="자동로그인" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="400, 300, 0, 0"/>
+        <Button Click="btnLogin" Background="Green" Width="200" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 500, 0, 0" FontSize="20" >로그인</Button>
     </Grid>
 </base:CustomControlModel>

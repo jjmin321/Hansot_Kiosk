@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Hansot_Kiosk.Database.Repository;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +23,25 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlLogin : CustomControlModel
     {
+        UserRepository userRepository = new UserRepository();
         public UserControlLogin()
         {
             InitializeComponent();
+        }
+
+        public void btnLogin(object sender, RoutedEventArgs e)
+        {
+            App.userViewModel.Name = userRepository.GetUserName(tbId.Text, tbPw.Text);
+            App.userViewModel.Barcode = userRepository.GetUserBarcode(tbId.Text, tbPw.Text);
+            if (App.userViewModel.Name == null)
+            {
+                MessageBox.Show("유저를 찾을 수 없다 개씨발련아");
+            } else
+            {
+                MessageBox.Show("안녕하세요" + App.userViewModel.Name + "님");
+                App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+            }
+
         }
     }
 }
