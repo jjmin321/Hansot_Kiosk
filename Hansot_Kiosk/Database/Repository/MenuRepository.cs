@@ -11,9 +11,11 @@ namespace Hansot_Kiosk.Database.Repository
 {
     public class MenuRepository
     {
+        Connection connection = new Connection();
         private string FindAllMenu = "SELECT idx, category, name, price, image FROM menu;";
         public List<Menu> GetMenus()
         {
+            connection.Connect();
             MySqlCommand cmd = new MySqlCommand(FindAllMenu, Connection.connection);
             //ExecuteNonQuery() : insert, update, delete 사용시
             //ExecuteReader() :select 사용시
@@ -32,6 +34,7 @@ namespace Hansot_Kiosk.Database.Repository
 
                 menus.Add(menu);
             }
+            connection.Close();
             return menus;
         }
     }
