@@ -19,6 +19,8 @@ namespace Hansot_Kiosk
     /// </summary>
     public partial class App : Application
     {
+        UserRepository userReository = new UserRepository();
+
         public static UIStateManager uIStateManager = new UIStateManager();
 
         public static List<Menu> Menus = new List<Menu>();

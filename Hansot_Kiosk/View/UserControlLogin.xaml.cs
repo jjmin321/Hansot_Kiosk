@@ -27,6 +27,11 @@ namespace Hansot_Kiosk.View
         public UserControlLogin()
         {
             InitializeComponent();
+            if (App.userViewModel.Auto == 1)
+            {
+               Debug.WriteLine("자동 로그인 되었습니다!");
+            } // 이거 안 되는데 고치자 시부레 ㅋㅋ
+
         }
 
         public void btnLogin(object sender, RoutedEventArgs e)
@@ -35,13 +40,16 @@ namespace Hansot_Kiosk.View
             App.userViewModel.Barcode = userRepository.GetUserBarcode(tbId.Text, tbPw.Text);
             if (App.userViewModel.Name == null)
             {
-                MessageBox.Show("유저를 찾을 수 없다 개씨발련아");
+                MessageBox.Show("유저를 찾을 수 없습니다");
             } else
             {
                 MessageBox.Show("안녕하세요" + App.userViewModel.Name + "님");
                 App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+                if (AutoLogin.IsChecked == true)
+                {
+                    userRepository.SetLogin(App.userViewModel.Name, App.userViewModel.Barcode);
+                }
             }
-
         }
     }
 }

@@ -9,6 +9,14 @@ namespace Hansot_Kiosk.ViewModel
 {
     public class UserViewModel : BindableBase
     {
+        private int _auto;
+
+        public int Auto
+        {
+            get => _auto;
+            set => SetProperty(ref _auto, value);
+        }
+
         private string _name;
 
         public string Name
