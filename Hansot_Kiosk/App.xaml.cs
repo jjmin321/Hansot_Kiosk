@@ -19,6 +19,7 @@ namespace Hansot_Kiosk
     /// </summary>
     public partial class App : Application
     {
+        MenuRepository menurepository = new MenuRepository();
         UserRepository userReository = new UserRepository();
 
         public static UIStateManager uIStateManager = new UIStateManager();
@@ -37,8 +38,8 @@ namespace Hansot_Kiosk
 
         public App()
         {
-            MenuRepository menurepository = new MenuRepository();
             Menus = menurepository.GetMenus();
+            userViewModel.Auto = userReository.GetIsAuto();
         }
 
         DateTime StartTime = DateTime.Now;

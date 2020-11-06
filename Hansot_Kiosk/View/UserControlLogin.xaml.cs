@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,11 +28,6 @@ namespace Hansot_Kiosk.View
         public UserControlLogin()
         {
             InitializeComponent();
-            if (App.userViewModel.Auto == 1)
-            {
-               Debug.WriteLine("자동 로그인 되었습니다!");
-            } // 이거 안 되는데 고치자 시부레 ㅋㅋ
-
         }
 
         public void btnLogin(object sender, RoutedEventArgs e)
