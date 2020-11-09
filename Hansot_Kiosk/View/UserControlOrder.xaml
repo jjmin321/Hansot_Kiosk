@@ -141,8 +141,8 @@
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="1">
                         <StackPanel Orientation="Horizontal">
-                            <Button Width="250" Height="50" Margin="0 2 2 2 " FontSize="30" Name="prview" Click="ChangePage">이전</Button>
-                            <Button Width="250" Height="50" Margin="0 2 2 2 " FontSize="30" Name="next" Click="ChangePage">다음</Button>
+                            <Button Width="250" Height="50" Margin="0 2 2 2 " FontSize="30" Name="prview" Click="ChangePage_Click">이전</Button>
+                            <Button Width="250" Height="50" Margin="0 2 2 2 " FontSize="30" Name="next" Click="ChangePage_Click">다음</Button>
                         </StackPanel>
                     </Grid>
                 </Grid>
