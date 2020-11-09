@@ -38,7 +38,7 @@ namespace Hansot_Kiosk.View
 
         private void btnMoveToPay(object sender, RoutedEventArgs e)
         {
-            App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PAY);
         }
 
         private void tbBarcode_TextChanged(object sender, TextChangedEventArgs e)
