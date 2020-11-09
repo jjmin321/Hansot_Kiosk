@@ -24,9 +24,10 @@ namespace Hansot_Kiosk.View
     public partial class UserControlOrder : CustomControlModel, INotifyPropertyChanged
     {
         int index;
-        int lunchBoxstartNumber = 0;
-        int riceBowlstartNumber = 0;
-        int juiceStartNumber= 0;
+        int startNumber = 0;
+        //int lunchBoxstartNumber = 1;
+        //int riceBowlstartNumber = 8;
+        //int juiceStartNumber= 11;
 
 
         private List<Food> calcaulation = new List<Food>()
@@ -63,7 +64,6 @@ namespace Hansot_Kiosk.View
             this.FontFamily = new System.Windows.Media.FontFamily("배달의민족 도현");
             this.Loaded += MainWindow_Loaded;
             this.listView.ItemsSource = calcaulation; // listView 담겨지는 calcaulation 담겨지는 리스트 
-            dvideMenu();
             tbTotalPrice.Text = App.payViewModel.TotalMoney + "";
             OnPropertyChanged("");
         }
@@ -76,8 +76,9 @@ namespace Hansot_Kiosk.View
         private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (lbCategory.SelectedIndex == -1) return;
-            dvideMenu();
+            divideMenu();
             Category category = (Category)lbCategory.SelectedIndex;
+            //ChangeStartNumber();
             lbMenus.ItemsSource = seeSixList.Where(x => x.category == category).ToList();
         }
         private void lbMenus_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -203,36 +204,45 @@ namespace Hansot_Kiosk.View
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-        public void dvideMenu()
+
+        public void ChangeStartNumber()
         {
+            Category category = (Category)lbCategory.SelectedIndex;
+            if (category == Category.lunchBox)
+            {
+                startNumber = 0;
+            }
+            else if (category == Category.RiceBowl)
+            {
+                startNumber = 8;
+            }
+            else
+            {
+                startNumber = 11;
+            }
+        }
+
+        public void divideMenu()
+        {
+            seeSixList.Clear();
             Category category = (Category)lbCategory.SelectedIndex;
             if (lbCategory.SelectedIndex == -1)
             {
                 category = Category.lunchBox;
             }
-            for (int i = 0; i < lstFood.Count; i++)//전체 메뉴만큼 돌아서 그 안에서 카테고리가 선택된것에 리스트를 추가해주는것
+            
+            for (int i = startNumber; i < lstFood.Count; i++)//전체 메뉴만큼 돌아서 그 안에서 카테고리가 선택된것에 리스트를 추가해주는것
             {
                 if (lstFood[i].category == category)//카테고리 확인
                 {
                     seeSixList.Add(lstFood[i]);
-                    if(category == Category.lunchBox)
-                    {
-                        lunchBoxstartNumber = 1;
-                    }
-                    else if (category == Category.RiceBowl)
-                    {
-                        riceBowlstartNumber = 8;
-                    }
-                    else
-                    {
-
-                    }
                     //카운터를 카테고리 메뉴 갯수를 세고 그 수에 /6 한다음에 남은것을 구함 -> 구한 값 만큼 for문을 돌려서
                 }
+                lbMenus.ItemsSource = null;
             }
         }
 
-        private void ChangePage(object sender, RoutedEventArgs e)
+        private void ChangePage_Click(object sender, RoutedEventArgs e)
         {
             var name = (sender as System.Windows.Controls.Button).Name;
             index = 6;
@@ -240,13 +250,16 @@ namespace Hansot_Kiosk.View
 
             if (name == "next")
             {
+                startNumber += 6;
             }
             else
             {
+                startNumber = startNumber - 6;
             }
-            dvideMenu();
-            lbMenus.Items.Refresh();
+            divideMenu();
+            lbMenus.ItemsSource = seeSixList ;
 
         }
+
     }
 }
