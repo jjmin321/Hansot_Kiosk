@@ -15,7 +15,7 @@ namespace Hansot_Kiosk.Database
         {
             string Attributes = Config.DBConfig.GetDBInfo();
             connection = new MySqlConnection(Attributes);
-            connection.Open();
+            //connection.Open();
             Debug.WriteLine("[DATABASE] 연결 완료");
         }
     }
