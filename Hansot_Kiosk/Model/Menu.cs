@@ -8,11 +8,12 @@ namespace Hansot_Kiosk.Model
 {
     public class Menu
     {
+        public int Idx { get; set; }
+
         /// <summary>
         /// 카테고리명
         /// </summary>
         /// 
-        public int Idx { get; set; }
         public String Category { get; set; }
 
         /// <summary>

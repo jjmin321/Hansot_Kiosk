@@ -8,7 +8,7 @@ namespace Hansot_Kiosk.Config
 {
     public class DBConfig
     {
-        private static string _dbHost = "127.0.0.1"; //10.80.163.232
+        private static string _dbHost = "10.80.163.232";
         private static string _dbUser = "root";
         private static string _dbPw = "qwerz123";
         private static int _dbPort = 3306;

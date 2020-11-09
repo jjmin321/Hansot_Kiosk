@@ -109,13 +109,15 @@
     </ApplicationDefinition>
     <Compile Include="Config\DBConfig.cs" />
     <Compile Include="Database\Connection.cs" />
-    <Compile Include="Database\Dao\MenuDao.cs" />
     <Compile Include="Database\Repository\MenuRepository.cs" />
+    <Compile Include="Database\Repository\UserRepository.cs" />
     <Compile Include="Database\Select.cs" />
     <Compile Include="Model\Menu.cs" />
     <Compile Include="Model\Payment.cs" />
     <Compile Include="Model\Total.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\PayViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="View\Category.cs" />
     <Compile Include="View\Food.cs" />
     <Compile Include="View\MainWindow.xaml.cs">

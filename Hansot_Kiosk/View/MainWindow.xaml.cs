@@ -54,7 +54,14 @@ namespace Hansot_Kiosk.View
 
         private void SetStartCustomControl()
         {
-            App.uIStateManager.PushCustomCtrl(ucLogin);
+            if (App.userViewModel.Auto == 1)
+            {
+                App.uIStateManager.PushCustomCtrl(ucHome);
+                MessageBox.Show("자동 로그인 되었습니다!");
+            } else
+            {
+                App.uIStateManager.PushCustomCtrl(ucLogin);
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)

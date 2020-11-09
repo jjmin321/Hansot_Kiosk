@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,15 +20,20 @@ namespace Hansot_Kiosk.View
     /// <summary>
     /// UserControlPayByMoney.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class UserControlPayByMoney : CustomControlModel
+    public partial class UserControlPayByMoney : CustomControlModel, INotifyPropertyChanged
     {
         public string userBarcode = "2112345678900";
         public UserControlPayByMoney()
         {
             InitializeComponent();
-            double totalMoney = 15236236236236;
-            tbTotalMoney.Text = "총 금액: " + String.Format("{0:#,0}", totalMoney) + "원";
+            this.Loaded += UserControlPayByMoney_Loaded;
+            OnPropertyChanged("");
             tbBarcode.Focus();
+        }
+
+        private void UserControlPayByMoney_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = App.payViewModel;
         }
 
         private void btnMoveToPay(object sender, RoutedEventArgs e)
@@ -43,6 +49,15 @@ namespace Hansot_Kiosk.View
                 App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
             }
             
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(String name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }
