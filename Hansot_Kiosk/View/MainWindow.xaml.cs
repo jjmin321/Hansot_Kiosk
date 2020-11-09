@@ -41,7 +41,7 @@ namespace Hansot_Kiosk.View
 
         private void SetCustomControls()
         {
-            //App.uIStateManager.SetCustomCtrl(ucLogin, CustomControlType.LOGIN);
+            App.uIStateManager.SetCustomCtrl(ucLogin, CustomControlType.LOGIN);
             App.uIStateManager.SetCustomCtrl(ucHome, CustomControlType.HOME);
             App.uIStateManager.SetCustomCtrl(ucOrder, CustomControlType.ORDER);
             App.uIStateManager.SetCustomCtrl(ucPay, CustomControlType.PAY);
