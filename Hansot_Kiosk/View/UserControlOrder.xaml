@@ -113,18 +113,22 @@
                                 <UniformGrid Columns="2" Rows="3"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel  Margin="0 0 0 0" Width="250">
+                        <ListBox.ItemTemplate >
+                            <DataTemplate  >
+                                <StackPanel  Margin="100 0 0 0" >
                                     <Image Source="{Binding imagePath}"
-                                           HorizontalAlignment="Center"
-                                           Height="200"
-                                           Width="200"
+                                           Margin="0 0 0 0"
+                                           Height="180"
+                                           Width="250"
                                            />
                                     <TextBlock Text="{Binding name}"
+                                               Width="200"
+                                               Background="Yellow"
                                        HorizontalAlignment="Center" />
                                     <TextBlock Text="{Binding price}"
-                                       HorizontalAlignment="Center" />
+                                               Width="200"
+                                       HorizontalAlignment="Center" 
+                                               Background="Yellow"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -137,8 +141,8 @@
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="1">
                         <StackPanel Orientation="Horizontal">
-                            <Button Width="250" Height="50" Margin="0 2 2 2 " FontSize="30">이전</Button>
-                            <Button Width="250" Height="50" Margin="0 2 2 2 " FontSize="30">다음</Button>
+                            <Button Width="250" Height="50" Margin="0 2 2 2 " FontSize="30" Name="prview" Click="ChangePage">이전</Button>
+                            <Button Width="250" Height="50" Margin="0 2 2 2 " FontSize="30" Name="next" Click="ChangePage">다음</Button>
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -196,7 +200,9 @@
                 <Grid Grid.Row="1">
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock  FontSize="40" Name="tbTotalPrice" Text="{Binding TotalMoney, StringFormat=총합 : {0}}"></TextBlock>
+                        <TextBlock  FontSize="40">총합:</TextBlock>
+                        <TextBlock  FontSize="40" Name="tbTotalPrice" Text="{Binding totalPrice}"></TextBlock>
+
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="2">
