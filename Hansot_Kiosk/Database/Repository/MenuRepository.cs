@@ -6,13 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Hansot_Kiosk.Database.Repository;
+using Ubiety.Dns.Core.Records;
 
 namespace Hansot_Kiosk.Database.Repository
 {
     public class MenuRepository
     {
         Connection connection = new Connection();
-        private string FindAllMenu = "SELECT idx, category, name, price, image FROM menu;";
+        private string FindAllMenu = "SELECT * FROM menu;";
         public List<Menu> GetMenus()
         {
             connection.Connect();
@@ -25,12 +26,24 @@ namespace Hansot_Kiosk.Database.Repository
             {
                 Menu menu = new Menu()
                 {
-                    Idx = Convert.ToInt32(reader["idx"]),
-                    Category = Convert.ToString(reader["category"]),
-                    Name = Convert.ToString(reader["name"]),
-                    Price = Convert.ToInt32(reader["price"]),
-                    Image = Convert.ToString(reader["image"]),
+                    idx = Convert.ToInt32(reader["idx"]),
+                    name = Convert.ToString(reader["name"]),
+                    price = Convert.ToInt32(reader["price"]),
+                    image =  Convert.ToString(reader["image"]),
                 };
+                String category = Convert.ToString(reader["category"]);
+
+                if (category.Equals("lunchBox"))
+                {
+                    menu.category = View.Category.lunchBox;
+                }
+                else if (category.Equals("RiceBowl"))
+                {
+                    menu.category = View.Category.RiceBowl;
+                } else
+                {
+                    menu.category = View.Category.juice;
+                }
 
                 menus.Add(menu);
             }

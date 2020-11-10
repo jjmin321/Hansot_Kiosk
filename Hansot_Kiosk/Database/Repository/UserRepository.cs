@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 using System.Diagnostics;
 
 namespace Hansot_Kiosk.Database.Repository
-{ 
+{
     public class UserRepository
     {
         Connection connection = new Connection();
@@ -39,7 +39,7 @@ namespace Hansot_Kiosk.Database.Repository
             MySqlCommand cmd = new MySqlCommand(sql, Connection.connection);
             //ExecuteNonQuery() : insert, update, delete 사용시
             //ExecuteReader() :select 사용시
-            MySqlDataReader reader = cmd.ExecuteReader(); 
+            MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 name = Convert.ToString(reader["name"]);

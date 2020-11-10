@@ -116,7 +116,7 @@
                         <ListBox.ItemTemplate >
                             <DataTemplate  >
                                 <StackPanel  Margin="100 0 0 0" >
-                                    <Image Source="{Binding imagePath}"
+                                    <Image Source="{Binding image}"
                                            Margin="0 0 0 0"
                                            Height="180"
                                            Width="250"
