@@ -8,27 +8,32 @@ namespace Hansot_Kiosk.Model
 {
     public class Menu
     {
-        public int Idx { get; set; }
+        public int idx { get; set; }
 
         /// <summary>
         /// 카테고리명
         /// </summary>
         /// 
-        public String Category { get; set; }
+        public View.Category category { get; set; }
 
         /// <summary>
         /// 음식 이름
         /// </summary>
-        public String Name { get; set; }
+        public String name { get; set; }
 
         /// <summary>
         /// 음식 가격
         /// </summary>
-        public int Price { get; set; }
+        public int price { get; set; }
 
         /// <summary>
         /// 음식 이미지 경로
         /// </summary>
-        public String Image { get; set; }
+        public String image { get; set; }
+
+        /// <summary>
+        /// 음식 이미지 경로
+        /// </summary>
+        public int count { get; set; }
     }
 }
