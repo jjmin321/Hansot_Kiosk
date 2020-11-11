@@ -13,13 +13,13 @@
         <TextBox x:Name="tbId"
                  FontSize="40"
                  Height="50"
-                 Margin="600, 0, 600, 280"
+                 Margin="800, 0, 600, 280"
                  VerticalAlignment="Center"                >
         </TextBox>
         <TextBox x:Name="tbPw"
             FontSize="40"
             Height="50"
-            Margin="600, 0, 600, 0"
+            Margin="800, 0, 600, 0"
             VerticalAlignment="Center"
                  />
         <CheckBox x:Name="AutoLogin" Content="자동로그인" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="400, 300, 0, 0"/>

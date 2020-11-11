@@ -1,0 +1,37 @@
+﻿<base:CustomControlModel xmlns:base="clr-namespace:UIStateManagerLibrary;assembly=UIStateManagerLibrary" 
+             x:Class="Hansot_Kiosk.View.ManagerView.UserControlCategory"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Hansot_Kiosk.View.ManagerView"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <Grid>
+        <Grid Name="PieTable">
+            <lvc:PieChart LegendLocation="Bottom"
+                              Hoverable="False"
+                              DataTooltip="{x:Null}">
+                <lvc:PieChart.Series>
+                    <lvc:PieSeries Title="햄버거"
+                                       Values="2"
+                                       DataLabels="True"
+                                       />
+                    <lvc:PieSeries Title="음료수"
+                                       Values="4"
+                                       DataLabels="True"
+                                        />
+                    <lvc:PieSeries Title="치킨"
+                                       Values="4"
+                                       DataLabels="True"
+                                        />
+                    <lvc:PieSeries Title="디저트"
+                                       Values="6"
+                                       DataLabels="True"
+                                       />
+                </lvc:PieChart.Series>
+            </lvc:PieChart>
+        </Grid>
+    </Grid>
+</base:CustomControlModel>

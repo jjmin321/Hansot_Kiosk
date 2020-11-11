@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hansot_Kiosk", "Hansot_Kios
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KQRCode", "KQRCode\KQRCode.csproj", "{62F1B37E-4BB2-442B-99A7-36279C5C0F3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIStateManagerLibrary", "..\..\..\..\Downloads\UIStateManagerLibrary-main\UIStateManagerLibrary\UIStateManagerLibrary\UIStateManagerLibrary.csproj", "{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIStateManagerLibrary", "..\UIStateManager\UIStateManager-main\UIStateManagerLibrary\UIStateManagerLibrary\UIStateManagerLibrary.csproj", "{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
