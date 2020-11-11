@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace Hansot_Kiosk.View
         {
             InitializeComponent();
             Loaded += MainWindow_Loaded;
+            KeyDown += new KeyEventHandler(Window_KeyDown);
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
@@ -74,6 +76,14 @@ namespace Hansot_Kiosk.View
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F2 && App.uIStateManager.customCtrlStack.Count > 0 && App.uIStateManager.customCtrlStack.Peek() == ucHome)
+            {
+               App.uIStateManager.SwitchCustomControl(CustomControlType.MANAGER);
+            }
         }
     }
 }
