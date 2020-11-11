@@ -26,7 +26,6 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlOrder : CustomControlModel, INotifyPropertyChanged
     {
-        
         int startNumber = 0;
 
         private List<Model.Menu> calcaulation = new List<Model.Menu>()
@@ -48,7 +47,7 @@ namespace Hansot_Kiosk.View
             this.listView.ItemsSource = calcaulation; // listView 담겨지는 calcaulation 담겨지는 리스트 
             tbTotalPrice.Text = App.payViewModel.TotalMoney + "";
             OnPropertyChanged("");
-
+            BtnNotClick();
             MenuRepository repository = new MenuRepository();
             menus = repository.GetMenus();
         }
@@ -60,6 +59,7 @@ namespace Hansot_Kiosk.View
         }
         private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            startNumber = 0;
             if (lbCategory.SelectedIndex == -1) return;
             divideMenu();
             Category category = (Category)lbCategory.SelectedIndex;
@@ -67,6 +67,7 @@ namespace Hansot_Kiosk.View
         }
         private void lbMenus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            BtnNotClick();
             Model.Menu food = (Model.Menu)lbMenus.SelectedItem;
             int flag = 0; // 이미 그 메뉴가 있으면 더이상 추가 안되게 
             if (food != null)
@@ -132,19 +133,48 @@ namespace Hansot_Kiosk.View
                         }
                     }
                 }
+                BtnNotClick();
             }
             listView.Items.Refresh();
         }
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
-            App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+            calculationPrice();
+            if (App.payViewModel.TotalMoney != 0)
+            {
+                if (System.Windows.MessageBox.Show("홈화면으로 이동하시겠습니까? 홈화면으로 이동시 주문하던 메뉴가 지워집니다.", "안내", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    for (int i = 0; i < calcaulation.Count; i++)
+                    {
+                        calcaulation[i].count = 0;
+                    }
+                    App.payViewModel.TotalMoney = 0;
+                    calcaulation.Clear();
+
+                    calculationPrice();
+                    listView.Items.Refresh();
+                    App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("취소되었습니다, 안내");
+                }
+            }
+            else
+            {
+                App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+            }
+
         }
         private void btnMoveToPlace(object sender, RoutedEventArgs e)
         {
+            BtnNotClick();
             App.uIStateManager.SwitchCustomControl(CustomControlType.PLACE);
         }
         private void calculationPrice()
         {
+            BtnNotClick();
+
             App.payViewModel.TotalMoney = 0;
             for (int i = 0; i < calcaulation.Count; i++)
             {
@@ -158,27 +188,44 @@ namespace Hansot_Kiosk.View
             food.count = 0;
             calcaulation.Remove(food);
             listView.Items.Refresh();
+            calculationPrice();
+            BtnNotClick();
         }
         private void RemoveAll(object sender, RoutedEventArgs e)
         {
-            if(System.Windows.MessageBox.Show("선택한 메뉴를 모두 삭제하시겠습니까?", "안내", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                for (int i = 0; i < calcaulation.Count; i++)
+                if(System.Windows.MessageBox.Show("선택한 메뉴를 모두 삭제하시겠습니까?", "안내", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    calcaulation[i].count = 0;
-                }
-                calcaulation.Clear();
-                App.payViewModel.TotalMoney = 0;
+                    for (int i = 0; i < calcaulation.Count; i++)
+                    {
+                        calcaulation[i].count = 0;
+                    }
+                    calcaulation.Clear();
+                    App.payViewModel.TotalMoney = 0;
                 
-                calculationPrice();
-                listView.Items.Refresh();
+                    calculationPrice();
+                    listView.Items.Refresh();
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("취소되었습니다, 안내");
+                }
+        }
+
+        private void BtnNotClick()
+            
+        {
+            if(App.payViewModel.TotalMoney ==0)
+            {
+                AllRemove.IsEnabled = false;
+                OrderBtn.IsEnabled = false;
             }
             else
             {
-                System.Windows.MessageBox.Show("취소되었습니다, 안내");
+                AllRemove.IsEnabled = true;
+                OrderBtn.IsEnabled = true;
             }
-
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(String name)
         {
@@ -221,9 +268,13 @@ namespace Hansot_Kiosk.View
             }
             if (name == "next")
             {
-                if(category == Category.lunchBox && startNumber < 6)
+                if(category == Category.lunchBox && startNumber < 6 )
                 {
                     startNumber += 6;
+                }
+                else if (category == Category.RiceBowl&& startNumber < 12)
+                {
+                    startNumber += 12;
                 }
                 else
                 {
@@ -235,6 +286,10 @@ namespace Hansot_Kiosk.View
                 if (startNumber > 1&& category == Category.lunchBox)
                 {
                         startNumber -= 6;
+                }
+                else if (category == Category.RiceBowl && startNumber > 7)
+                {
+                    startNumber -= 12;
                 }
                 else
                 {
