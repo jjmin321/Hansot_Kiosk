@@ -86,4 +86,4 @@ namespace Hansot_Kiosk.View
             }
         }
     }
-    }
+}
