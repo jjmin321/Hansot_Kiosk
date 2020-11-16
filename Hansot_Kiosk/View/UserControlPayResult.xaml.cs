@@ -21,14 +21,36 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlPayResult : CustomControlModel
     {
+        UserControlSelectTable ucSelectTable = new UserControlSelectTable();
         public UserControlPayResult()
         {
             InitializeComponent();
         }
 
         private void btnMoveToHome(object sender, RoutedEventArgs e)
-        {
+        {                
+            Console.WriteLine(UserControlSelectTable.CurButton);
+            SelectedTableCountDown();
             App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
         }
+
+        void SelectedTableCountDown()
+        {
+            string TableNum = "";
+            if (UserControlSelectTable.CurButton == null)
+                return;
+            if (UserControlSelectTable.CurButton.Name == "Num1") TableNum = "1번";
+            else if (UserControlSelectTable.CurButton.Name == "Num2") TableNum = "2번";
+            else if (UserControlSelectTable.CurButton.Name == "Num3") TableNum = "3번";
+            else if (UserControlSelectTable.CurButton.Name == "Num4") TableNum = "4번";
+            else if (UserControlSelectTable.CurButton.Name == "Num5") TableNum = "5번";
+            else if (UserControlSelectTable.CurButton.Name == "Num6") TableNum = "6번";
+            else if (UserControlSelectTable.CurButton.Name == "Num7") TableNum = "7번";
+            else if (UserControlSelectTable.CurButton.Name == "Num8") TableNum = "8번";
+            else if (UserControlSelectTable.CurButton.Name == "Num9") TableNum = "9번";
+
+            ucSelectTable.CountDown(UserControlSelectTable.CurButton, TableNum);
+        }
+
     }
 }

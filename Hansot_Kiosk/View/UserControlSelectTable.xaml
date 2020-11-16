@@ -18,49 +18,40 @@
             <ColumnDefinition Width="3.3*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Right">
-            <Button Width="180" Height="80" Background="#8D6E63" x:Name="Num1" Margin="0, 100, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
-                <TextBlock FontSize="20" Margin="0, 0, 0 ,30">1번</TextBlock>
+            <Button Content="1번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num1" Margin="0, 100, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
             </Button>
-            <Button Width="180" Height="80" Background="#8D6E63" x:Name="Num4" Margin="0, 0, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
-                <TextBlock FontSize="20" Margin="0, 0, 0 ,30">4번</TextBlock>
+            <Button Content="4번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num4" Margin="0, 0, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
             </Button>
-            <Button Width="180" Height="80" Background="#8D6E63" x:Name="Num7" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
-                <TextBlock FontSize="20" Margin="0, 0, 0 ,30">7번</TextBlock>
+            <Button Content="7번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num7" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center">
-            <Button Width="180"  Height="80" Background="#8D6E63" x:Name="Num2" Margin="0, 100, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
-                <TextBlock FontSize="20" Margin="0, 0, 0 ,30">2번</TextBlock>
+            <Button Content="2번" FontSize="22" Width="180"  Height="80" Background="#8D6E63" x:Name="Num2" Margin="0, 100, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
             </Button>
-            <Button Width="180" Height="80" Background="#8D6E63" x:Name="Num5" Margin="0, 0, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
-                <TextBlock FontSize="20" Margin="0, 0, 0 ,30">5번</TextBlock>
+            <Button Content="5번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num5" Margin="0, 0, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
             </Button>
-            <Button Width="180" Height="80" Background="#8D6E63" x:Name="num8" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
-                <TextBlock FontSize="20" Margin="0, 0, 0 ,30">8번</TextBlock>
+            <Button Content="8번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num8" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Left">
-            <Button Width="180" Height="80" Background="#8D6E63" x:Name="Num3" Margin="0, 100, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
-                <TextBlock FontSize="20" Margin="0, 0, 0 ,30">3번</TextBlock>
+            <Button Content="3번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num3" Margin="0, 100, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
             </Button>
-            <Button Width="180" Height="80" Background="#8D6E63" x:Name="Num6" Margin="0, 0, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White">
-                <TextBlock FontSize="20" Margin="0, 0, 0 ,30">6번</TextBlock>
+            <Button Content="6번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num6" Margin="0, 0, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White">
             </Button>
-            <Button Width="180" Height="80" Background="#8D6E63" x:Name="Num9" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White">
-                <TextBlock FontSize="20" Margin="0, 0, 0 ,30">9번</TextBlock>
+            <Button Content="9번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num9" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White">
             </Button>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Top">
             <Button Width="180" Height="50" FocusVisualStyle="{x:Null}"
                  Background="#FF008575" Foreground="White" 
                  HorizontalAlignment="Right"
-                  FontSize="20" Content="이전"></Button>
+                  FontSize="20" Content="이전" Click="btnMoveToPlace"></Button>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Top">
             <Button Width="180" Height="50" FocusVisualStyle="{x:Null}"
                  Background="#FF7F7F7F" Foreground="White"
                  HorizontalAlignment="Left"
-                  FontSize="20" Content="다음"/>
+                  FontSize="20" Content="다음" Click="btnMoveToPay"/>
         </StackPanel>
     </Grid>
 </base:CustomControlModel>

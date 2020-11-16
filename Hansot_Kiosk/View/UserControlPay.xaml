@@ -9,7 +9,7 @@
              d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid Background="White">
         <TextBlock Text="결제 방식을 선택하세요" Margin="0,  0,   700, 550"  FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" Height="70" Width="554"></TextBlock>
-        <ListView Width="500" Height="300" Margin="-700, 0, 100, 50" Loaded="FoodListLoaded" x:Name="FoodListView">
+        <ListView Width="500" Height="300" Margin="-700, 0, 100, 50" x:Name="FoodListView">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="음식 이름" Width="150" DisplayMemberBinding="{Binding FoodName}"></GridViewColumn>
@@ -18,14 +18,14 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Width="360" Height="360" HorizontalAlignment="Center" VerticalAlignment="Center"
+        <Button Width="360" Height="360" HorizontalAlignment="Center" VerticalAlignment="Center" FocusVisualStyle="{x:Null}"
                 Margin="150, 0, 0, 65" Content="현금"
-                FontSize="50" Background="#FF008575" Foreground="White"></Button>
-        <Button Width="360" Height="360" HorizontalAlignment="Center" VerticalAlignment="Center"
+                FontSize="50" Background="#FF008575" Foreground="White" Click="btnMoveToPayByMoney"></Button>
+        <Button Width="360" Height="360" HorizontalAlignment="Center" VerticalAlignment="Center" FocusVisualStyle="{x:Null}"
                 Margin="950, 0, 0, 65" Content="카드"
-                FontSize="50" Background="#FF008575" Foreground="White"/>
+                FontSize="50" Background="#FF008575" Foreground="White" Click="btnMoveToPayByQR"/>
         <Button Content="이전" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="25, 0, 0, 30"
-                Foreground="White" Background="#FF008575" Width="268" Height="52"/>
-        <TextBlock Text="총금액 : " Margin="950, 380, 0, 0" FontSize="30" HorizontalAlignment="Center" Width="388" Height="45" VerticalAlignment="Center"/>
+                Foreground="White" Background="#FF008575" Width="268" Height="52" Click="btnMoveToPlace"/>
+        <TextBlock x:Name="TotalAmountView" Text="총금액 : " Margin="950, 380, 0, 0" FontSize="30" HorizontalAlignment="Center" Width="388" Height="45" VerticalAlignment="Center"/>
     </Grid>
 </base:CustomControlModel>

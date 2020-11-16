@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hansot_Kiosk", "Hansot_Kiosk\Hansot_Kiosk.csproj", "{62DC89D1-DF99-4CD5-89C5-D70EA7A919B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIStateManagerLibrary", "..\UIStateManager\UIStateManager-main\UIStateManagerLibrary\UIStateManagerLibrary\UIStateManagerLibrary.csproj", "{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KQRCode", "KQRCode\KQRCode.csproj", "{62F1B37E-4BB2-442B-99A7-36279C5C0F3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIStateManagerLibrary", "..\..\..\Downloads\UIStateManagerLibrary-main\UIStateManagerLibrary\UIStateManagerLibrary\UIStateManagerLibrary.csproj", "{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{62DC89D1-DF99-4CD5-89C5-D70EA7A919B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62DC89D1-DF99-4CD5-89C5-D70EA7A919B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62DC89D1-DF99-4CD5-89C5-D70EA7A919B6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62F1B37E-4BB2-442B-99A7-36279C5C0F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{62F1B37E-4BB2-442B-99A7-36279C5C0F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62F1B37E-4BB2-442B-99A7-36279C5C0F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62F1B37E-4BB2-442B-99A7-36279C5C0F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8DDF0D-6BD6-41DE-BE05-20777B69A311}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

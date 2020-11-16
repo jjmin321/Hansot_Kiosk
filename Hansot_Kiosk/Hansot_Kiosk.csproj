@@ -217,7 +217,7 @@
     <Content Include="Static\뜨끈한 한솥_ 1월 한달 내내 초특가 할인! %27블랙한솥데이 %27.mp4" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UIStateManager\UIStateManager-main\UIStateManagerLibrary\UIStateManagerLibrary\UIStateManagerLibrary.csproj">
+    <ProjectReference Include="..\..\..\..\Downloads\UIStateManagerLibrary-main\UIStateManagerLibrary\UIStateManagerLibrary\UIStateManagerLibrary.csproj">
       <Project>{6c8ddf0d-6bd6-41de-be05-20777b69a311}</Project>
       <Name>UIStateManagerLibrary</Name>
     </ProjectReference>
