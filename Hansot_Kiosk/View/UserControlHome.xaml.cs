@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hansot_Kiosk.Network;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Hansot_Kiosk.Enum;
 using UIStateManagerLibrary;
 
 namespace Hansot_Kiosk.View
@@ -22,10 +26,23 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlHome : CustomControlModel
     {
-
+        TCPNet tcpnet = new TCPNet();
         public UserControlHome()
         {
             InitializeComponent();
+            tcpnet.StartClient();
+            RequestMessage requestJson = new RequestMessage();
+
+            requestJson.MSGType = (MessageType)0;
+            requestJson.Id = "2116";
+            requestJson.Content = "";
+            requestJson.ShopName = "";
+            requestJson.OrderNumber = "";
+            requestJson.Menus = null;
+
+            string json = JsonConvert.SerializeObject(requestJson);
+            tcpnet.Send(json);
+            tcpnet.waitForReceive();
         }
 
         private void HansotVideoEnded(object sender, RoutedEventArgs e)
@@ -37,6 +54,11 @@ namespace Hansot_Kiosk.View
         private void btnMoveToOrder(object sender, RoutedEventArgs e)
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.ORDER);
+        }
+
+        private void btnMoveToManager(object sender, RoutedEventArgs e)
+        {
+            App.uIStateManager.SwitchCustomControl(CustomControlType.MANAGER);
         }
     }
 }

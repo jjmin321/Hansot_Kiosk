@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Hansot_Kiosk.Model;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,12 +21,21 @@ namespace Hansot_Kiosk.View
     /// <summary>
     /// UserControlPayResult.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class UserControlPayResult : CustomControlModel
+    public partial class UserControlPayResult : CustomControlModel, INotifyPropertyChanged
     {
+        public string User;         
+
         UserControlSelectTable ucSelectTable = new UserControlSelectTable();
         public UserControlPayResult()
         {
             InitializeComponent();
+            Loaded += UserControlPayResult_Loaded;
+            OnPropertyChanged("");
+        }
+
+        private void UserControlPayResult_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = App.payViewModel;
         }
 
         private void btnMoveToHome(object sender, RoutedEventArgs e)
@@ -52,5 +63,14 @@ namespace Hansot_Kiosk.View
             ucSelectTable.CountDown(UserControlSelectTable.CurButton, TableNum);
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(String name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
     }
 }

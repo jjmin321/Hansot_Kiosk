@@ -16,7 +16,7 @@
                        FontSize="20" FontWeight="ExtraBlack" />
         </StackPanel>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
-            <TextBlock x:Name="tbTotalMoney" TextAlignment="Center"
+            <TextBlock x:Name="tbTotalMoney" Text="{Binding TotalMoney, StringFormat=총 금액: {0}}" TextAlignment="Center"
                        FontSize="40" FontWeight="Heavy"/>
         </StackPanel>
         <k:KQRWebCam x:Name="webcam" QrDecoded="webcam_QrDecoded"

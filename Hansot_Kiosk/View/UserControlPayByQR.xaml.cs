@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Hansot_Kiosk.Model;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,21 +22,42 @@ namespace Hansot_Kiosk.View
     /// <summary>
     /// UserControlPayByQR.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class UserControlPayByQR : CustomControlModel
+    public partial class UserControlPayByQR : CustomControlModel, INotifyPropertyChanged
     {
         public UserControlPayByQR()
         {
             InitializeComponent();
             webcam.CameraIndex = 0;
-            double totalMoney = 15236236236236;
-            tbTotalMoney.Text = "총 금액: " + String.Format("{0:#,0}", totalMoney) + "원";
+            this.Loaded += MainWindow_Loaded;
+            OnPropertyChanged("");
         }
 
-        private void webcam_QrDecoded(object sender, string e) { tbRecog.Text = e; }
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = App.payViewModel;
+        }
+
+
+        private void webcam_QrDecoded(object sender, string e)
+        { 
+            tbRecog.Text = e;
+            App.payViewModel.QrCode = e;
+            App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
+        }
 
         private void btnMoveToPay(object sender, RoutedEventArgs e)
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.PAY);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(String name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }

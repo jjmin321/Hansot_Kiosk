@@ -27,7 +27,7 @@
                 <Button Click="btnMoveToOrder" Width="100" Background="Green" Foreground="White">주문하기</Button>    
             </Grid>
             <Grid Grid.Row="4">
-                <Button Margin="2" Width="100" HorizontalAlignment="Right" Background="HotPink" Foreground="White">관리</Button>
+                <Button Click="btnMoveToManager" Margin="2" Width="100" HorizontalAlignment="Right" Background="HotPink" Foreground="White">관리</Button>
             </Grid>
         </Grid>
     </Grid>

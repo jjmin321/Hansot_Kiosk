@@ -4,10 +4,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hansot_Kiosk.View"
+        xmlns:manager="clr-namespace:Hansot_Kiosk.View.ManagerView"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
+        <Grid.RowDefinitions>   
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="9.5*"/>
         </Grid.RowDefinitions>
@@ -18,7 +20,8 @@
                 </Button>
         </Grid>
         <Grid Grid.Row="1">
-            <local:UserControlHome x:Name="ucHome" Visibility="Visible"/>
+            <local:UserControlLogin x:Name="ucLogin" Visibility="Visible"/>
+            <local:UserControlHome x:Name="ucHome" Visibility="Collapsed"/>
             <local:UserControlOrder x:Name="ucOrder" Visibility="Collapsed"/>
             <local:UserControlPay x:Name="ucPay" Visibility="Collapsed"/>
             <local:UserControlPlace x:Name="ucPlace" Visibility="Collapsed"/>
@@ -26,6 +29,8 @@
             <local:UserControlPayByMoney x:Name="ucPayByMoney" Visibility="Collapsed"/>
             <local:UserControlPayByQR x:Name="ucPayByQR" Visibility="Collapsed"/>
             <local:UserControlPayResult x:Name="ucPayResult" Visibility="Collapsed"/>
+            <manager:UserControlManager x:Name="ucManager" Visibility="Collapsed"/>
+            <manager:UserControlCategory x:Name="ucCategory" Visibility="Collapsed"/>
         </Grid>
     </Grid>
 </Window>

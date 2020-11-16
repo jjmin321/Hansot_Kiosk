@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace Hansot_Kiosk.View
         {
             InitializeComponent();
             Loaded += MainWindow_Loaded;
+            KeyDown += new KeyEventHandler(Window_KeyDown);
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
@@ -41,6 +43,7 @@ namespace Hansot_Kiosk.View
 
         private void SetCustomControls()
         {
+            App.uIStateManager.SetCustomCtrl(ucLogin, CustomControlType.LOGIN);
             App.uIStateManager.SetCustomCtrl(ucHome, CustomControlType.HOME);
             App.uIStateManager.SetCustomCtrl(ucOrder, CustomControlType.ORDER);
             App.uIStateManager.SetCustomCtrl(ucPay, CustomControlType.PAY);
@@ -49,11 +52,20 @@ namespace Hansot_Kiosk.View
             App.uIStateManager.SetCustomCtrl(ucPayByMoney, CustomControlType.PAYBYMONEY);
             App.uIStateManager.SetCustomCtrl(ucPayByQR, CustomControlType.PAYBYQR);
             App.uIStateManager.SetCustomCtrl(ucPayResult, CustomControlType.PAYRESULT);
+            App.uIStateManager.SetCustomCtrl(ucManager, CustomControlType.MANAGER);
+            App.uIStateManager.SetCustomCtrl(ucCategory, CustomControlType.CATEGORY);
         }
 
         private void SetStartCustomControl()
         {
-            App.uIStateManager.PushCustomCtrl(ucHome);
+            if (App.userViewModel.Auto == 1)
+            {
+                App.uIStateManager.PushCustomCtrl(ucHome);
+                MessageBox.Show("자동 로그인 되었습니다!");
+            } else
+            {
+                App.uIStateManager.PushCustomCtrl(ucLogin);
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -68,6 +80,14 @@ namespace Hansot_Kiosk.View
             {
                 UserControlSelectTable.CurButton.Background = new SolidColorBrush(ucSelectTable.basicColor);
                 UserControlSelectTable.CurButton = null;
+            }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F2 && App.uIStateManager.customCtrlStack.Count > 0 && App.uIStateManager.customCtrlStack.Peek() == ucHome)
+            {
+               App.uIStateManager.SwitchCustomControl(CustomControlType.MANAGER);
             }
         }
     }

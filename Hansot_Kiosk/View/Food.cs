@@ -14,5 +14,6 @@ namespace Hansot_Kiosk.View
         public int price { get; set; }
         public int count { get; set; }
 
+
     }
 }
