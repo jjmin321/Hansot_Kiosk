@@ -62,7 +62,8 @@ namespace Hansot_Kiosk.View
             {
                 App.uIStateManager.PushCustomCtrl(ucHome);
                 MessageBox.Show("자동 로그인 되었습니다!");
-            } else
+            }
+            else
             {
                 App.uIStateManager.PushCustomCtrl(ucLogin);
             }
@@ -82,7 +83,7 @@ namespace Hansot_Kiosk.View
         {
             if (e.Key == Key.F2 && App.uIStateManager.customCtrlStack.Count > 0 && App.uIStateManager.customCtrlStack.Peek() == ucHome)
             {
-               App.uIStateManager.SwitchCustomControl(CustomControlType.MANAGER);
+                App.uIStateManager.SwitchCustomControl(CustomControlType.MANAGER);
             }
         }
     }
