@@ -9,15 +9,15 @@
         WindowState="Maximized"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>   
+        <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="9.5*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Label Name="header" MinHeight="22.5" MaxHeight="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Red" />
-                <Button Click="btnMoveToHome" HorizontalAlignment="Right" BorderThickness="0">
-                    <Image Name="HomeBtn" Source="../Static/Hansot.png"/>
-                </Button>
+            <Button Click="btnMoveToHome" HorizontalAlignment="Right" BorderThickness="0">
+                <Image Name="HomeBtn" Source="../Static/Hansot.png"/>
+            </Button>
         </Grid>
         <Grid Grid.Row="1">
             <local:UserControlLogin x:Name="ucLogin" Visibility="Visible"/>

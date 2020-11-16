@@ -62,7 +62,8 @@ namespace Hansot_Kiosk.View
             {
                 App.uIStateManager.PushCustomCtrl(ucHome);
                 MessageBox.Show("자동 로그인 되었습니다!");
-            } else
+            }
+            else
             {
                 App.uIStateManager.PushCustomCtrl(ucLogin);
             }
@@ -76,13 +77,18 @@ namespace Hansot_Kiosk.View
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+            if (UserControlSelectTable.CurButton != null) // 홈버튼 누를 경우 테이블 선택이 취소도니다.
+            {
+                UserControlSelectTable.CurButton.Background = new SolidColorBrush(ucSelectTable.basicColor);
+                UserControlSelectTable.CurButton = null;
+            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.F2 && App.uIStateManager.customCtrlStack.Count > 0 && App.uIStateManager.customCtrlStack.Peek() == ucHome)
             {
-               App.uIStateManager.SwitchCustomControl(CustomControlType.MANAGER);
+                App.uIStateManager.SwitchCustomControl(CustomControlType.MANAGER);
             }
         }
     }
