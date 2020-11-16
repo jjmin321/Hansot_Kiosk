@@ -6,21 +6,52 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Hansot_Kiosk.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid Background="White">
-
-        <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="78,51,542,319" x:Name="Table_1" Content="1"></Button>
-        <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="282,51,338,319" x:Name="Table_2" Content="2"></Button>
-        <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="482,51,138,319" x:Name="Table_3" Content="3"></Button>
-        <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="78,153,542,217" x:Name="Table_4" Content="4"></Button>
-        <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="282,153,338,217" x:Name="Table_5" Content="5"></Button>
-        <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="482,153,138,217" x:Name="Table_6" Content="6"></Button>
-        <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="78,257,542,113" x:Name="Table_7" Content="7"></Button>
-        <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="282,257,338,113" x:Name="Table_8" Content="8"></Button>
-        <Button Width="180" Height="80" Background="#FFE0E0E0" Margin="482,257,138,113" x:Name="Table_9" Content="9"></Button>
-        <Button Click="btnMoveToPlace" Width="160" Height="40" Margin="78,380,562,30"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="1.7*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.3*"/>
+            <ColumnDefinition Width="3.3*"/>
+            <ColumnDefinition Width="3.3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Right">
+            <Button Content="1번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num1" Margin="0, 100, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
+            </Button>
+            <Button Content="4번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num4" Margin="0, 0, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
+            </Button>
+            <Button Content="7번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num7" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center">
+            <Button Content="2번" FontSize="22" Width="180"  Height="80" Background="#8D6E63" x:Name="Num2" Margin="0, 100, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
+            </Button>
+            <Button Content="5번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num5" Margin="0, 0, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
+            </Button>
+            <Button Content="8번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num8" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Left">
+            <Button Content="3번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num3" Margin="0, 100, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White" BorderBrush="White">
+            </Button>
+            <Button Content="6번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num6" Margin="0, 0, 0, 45" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White">
+            </Button>
+            <Button Content="9번" FontSize="22" Width="180" Height="80" Background="#8D6E63" x:Name="Num9" Click="TableClick" FocusVisualStyle="{x:Null}" Foreground="White">
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Top">
+            <Button Width="180" Height="50" FocusVisualStyle="{x:Null}"
                  Background="#FF008575" Foreground="White" 
-                 HorizontalAlignment="Center" VerticalAlignment="Center" 
-                  FontSize="20" Content="이전"></Button>
+                 HorizontalAlignment="Right"
+                  FontSize="20" Content="이전" Click="btnMoveToPlace"></Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Top">
+            <Button Width="180" Height="50" FocusVisualStyle="{x:Null}"
+                 Background="#FF7F7F7F" Foreground="White"
+                 HorizontalAlignment="Left"
+                  FontSize="20" Content="다음" Click="btnMoveToPay"/>
+        </StackPanel>
     </Grid>
 </base:CustomControlModel>
