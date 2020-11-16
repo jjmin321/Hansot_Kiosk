@@ -137,7 +137,7 @@ namespace Hansot_Kiosk.View
             }
             listView.Items.Refresh();
         }
-        public void btnMoveToHome(object sender, RoutedEventArgs e)
+        private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
             calculationPrice();
             if (App.payViewModel.TotalMoney != 0)
