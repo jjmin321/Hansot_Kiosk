@@ -28,6 +28,8 @@ namespace Hansot_Kiosk.View
     {
         int startNumber = 0;
 
+        OrderMenuRepository orderMenuRepository = new OrderMenuRepository();
+
         private List<Model.Menu> calcaulation = new List<Model.Menu>()
         {
             //담겨지는 리스트
@@ -38,6 +40,7 @@ namespace Hansot_Kiosk.View
             //메뉴 정보가 담겨져있는 리스트
         };
 
+        
         private List<Model.Menu> menus = new List<Model.Menu>();
         public UserControlOrder()
         {
@@ -169,6 +172,7 @@ namespace Hansot_Kiosk.View
         private void btnMoveToPlace(object sender, RoutedEventArgs e)
         {
             BtnNotClick();
+            App.orderViewModel.orderMenu = calcaulation;
             App.uIStateManager.SwitchCustomControl(CustomControlType.PLACE);
         }
         private void calculationPrice()

@@ -14,7 +14,7 @@
             <TextBlock FontSize="30" Text="{Binding TotalMoney, StringFormat=총 금액 : {0}}" HorizontalAlignment="Left" Margin="50 20 0 0"></TextBlock>
             <TextBlock FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 100 0 0">주문번호</TextBlock>
             <Button Width="200" Height="100" HorizontalAlignment="Center" 
-                    Background="Green" FontSize="30" Margin="0 100 0 0" Click="btnMoveToHome">확인</Button>
+                    Background="Green" FontSize="30" Margin="0 100 0 0" Click="btnMoveToHome">주문하기</Button>
         </StackPanel>
     </Grid>
 </base:CustomControlModel>
