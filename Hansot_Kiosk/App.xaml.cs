@@ -21,6 +21,7 @@ namespace Hansot_Kiosk
     {
         MenuRepository menurepository = new MenuRepository();
         UserRepository userReository = new UserRepository();
+        OrderMenuRepository orderMenuRepository = new OrderMenuRepository();
 
         public static UIStateManager uIStateManager = new UIStateManager();
 
@@ -35,6 +36,9 @@ namespace Hansot_Kiosk
         public static PayViewModel payViewModel = new PayViewModel();
 
         public static UserViewModel userViewModel = new UserViewModel();
+
+        public static OrderViewModel orderViewModel = new OrderViewModel();
+        
 
         public App()
         {
