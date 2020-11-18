@@ -37,7 +37,6 @@ namespace Hansot_Kiosk.View
             this.DataContext = App.payViewModel;
         }
 
-
         private void webcam_QrDecoded(object sender, string e)
         { 
             tbRecog.Text = e;

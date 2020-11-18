@@ -1,4 +1,9 @@
-﻿using System;
+﻿using Hansot_Kiosk.Network;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Hansot_Kiosk.Enum;
+using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -16,14 +21,16 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using UIStateManagerLibrary;
+using System.Threading;
 
 namespace Hansot_Kiosk.View
 {
     /// <summary>
     /// MainWindow.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        TCPNet tcpnet = new TCPNet();
         public MainWindow()
         {
             InitializeComponent();
@@ -33,12 +40,16 @@ namespace Hansot_Kiosk.View
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
+            OnPropertyChanged("");
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             SetCustomControls();
             SetStartCustomControl();
+            tcpnet.SetUser("2116");
+            tcpnet.Login();
+            tcpnet.SendMessage("안녕하십니까");
         }
 
         private void SetCustomControls()
@@ -62,7 +73,8 @@ namespace Hansot_Kiosk.View
             {
                 App.uIStateManager.PushCustomCtrl(ucHome);
                 MessageBox.Show("자동 로그인 되었습니다!");
-            } else
+            }
+            else
             {
                 App.uIStateManager.PushCustomCtrl(ucLogin);
             }
@@ -76,13 +88,28 @@ namespace Hansot_Kiosk.View
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
+            if (UserControlSelectTable.CurButton != null) // 홈버튼 누를 경우 테이블 선택이 취소도니다.
+            {
+                UserControlSelectTable.CurButton.Background = new SolidColorBrush(ucSelectTable.basicColor);
+                UserControlSelectTable.CurButton = null;
+            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.F2 && App.uIStateManager.customCtrlStack.Count > 0 && App.uIStateManager.customCtrlStack.Peek() == ucHome)
             {
-               App.uIStateManager.SwitchCustomControl(CustomControlType.MANAGER);
+                App.uIStateManager.SwitchCustomControl(CustomControlType.MANAGER);
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(String name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
             }
         }
     }

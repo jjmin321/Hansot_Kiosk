@@ -26,23 +26,9 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlHome : CustomControlModel
     {
-        TCPNet tcpnet = new TCPNet();
         public UserControlHome()
         {
             InitializeComponent();
-            tcpnet.StartClient();
-            RequestMessage requestJson = new RequestMessage();
-
-            requestJson.MSGType = (MessageType)0;
-            requestJson.Id = "2116";
-            requestJson.Content = "";
-            requestJson.ShopName = "";
-            requestJson.OrderNumber = "";
-            requestJson.Menus = null;
-
-            string json = JsonConvert.SerializeObject(requestJson);
-            tcpnet.Send(json);
-            tcpnet.waitForReceive();
         }
 
         private void HansotVideoEnded(object sender, RoutedEventArgs e)
