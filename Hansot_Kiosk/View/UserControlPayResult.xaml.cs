@@ -1,4 +1,5 @@
 ﻿using Hansot_Kiosk.Model;
+using Hansot_Kiosk.Database.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,8 @@ namespace Hansot_Kiosk.View
     {
         public string User;
 
+        OrderMenuRepository orderMenuRepository = new OrderMenuRepository();
+
         UserControlSelectTable ucSelectTable = new UserControlSelectTable();
         public UserControlPayResult()
         {
@@ -41,6 +44,16 @@ namespace Hansot_Kiosk.View
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
             Console.WriteLine(UserControlSelectTable.CurButton);
+            int useridx = orderMenuRepository.GetIdx();
+            orderMenuRepository.InsertMneu(App.orderViewModel.orderMenu, useridx);
+            for(int i = 0;  App.orderViewModel.orderMenu.Count > i; i++)
+            {
+                App.orderViewModel.orderMenu[i].count = 0;
+            }
+            App.orderViewModel.orderMenu.Clear();
+            App.payViewModel.TotalMoney = 0;
+            
+            
             SelectedTableCountDown();
             App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
         }
