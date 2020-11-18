@@ -28,7 +28,7 @@ namespace Hansot_Kiosk.View
     /// <summary>
     /// MainWindow.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
         TCPNet tcpnet = new TCPNet();
         public MainWindow()
@@ -40,16 +40,15 @@ namespace Hansot_Kiosk.View
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
-            OnPropertyChanged("");
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             SetCustomControls();
             SetStartCustomControl();
-            tcpnet.SetUser("2116");
+            tcpnet.SetUser("2115");
             tcpnet.Login();
-            tcpnet.SendMessage("안녕하십니까");
+            tcpnet.SendMessage("내가 로그인했다. 나는 바보다. 나는 멍청하다.");
         }
 
         private void SetCustomControls()
@@ -88,7 +87,7 @@ namespace Hansot_Kiosk.View
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
             App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
-            if (UserControlSelectTable.CurButton != null) // 홈버튼 누를 경우 테이블 선택이 취소도니다.
+            if (UserControlSelectTable.CurButton != null)
             {
                 UserControlSelectTable.CurButton.Background = new SolidColorBrush(ucSelectTable.basicColor);
                 UserControlSelectTable.CurButton = null;
@@ -100,16 +99,6 @@ namespace Hansot_Kiosk.View
             if (e.Key == Key.F2 && App.uIStateManager.customCtrlStack.Count > 0 && App.uIStateManager.customCtrlStack.Peek() == ucHome)
             {
                 App.uIStateManager.SwitchCustomControl(CustomControlType.MANAGER);
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(String name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
             }
         }
     }
