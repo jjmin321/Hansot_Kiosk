@@ -31,6 +31,7 @@ namespace Hansot_Kiosk.Database.Repository
                 }
             }
             idx++;
+            App.payViewModel.OrderCount = idx;
             return idx;
         }
 
