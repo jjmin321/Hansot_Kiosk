@@ -1,4 +1,5 @@
 ﻿using Hansot_Kiosk.Model;
+using Hansot_Kiosk.Database.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UIStateManagerLibrary;
 
+
 namespace Hansot_Kiosk.View
 {
     /// <summary>
@@ -24,6 +26,10 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlPayByQR : CustomControlModel, INotifyPropertyChanged
     {
+        public int userIdx;
+
+        OrderMenuRepository orderMenuRepository = new OrderMenuRepository();
+
         public UserControlPayByQR()
         {
             InitializeComponent();
@@ -38,14 +44,17 @@ namespace Hansot_Kiosk.View
         }
 
         private void webcam_QrDecoded(object sender, string e)
-        { 
+        {
             tbRecog.Text = e;
             App.payViewModel.QrCode = e;
+            userIdx = orderMenuRepository.GetIdx();
+            App.payViewModel.OrderCount = userIdx;
             App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
         }
 
         private void btnMoveToPay(object sender, RoutedEventArgs e)
         {
+            
             App.uIStateManager.SwitchCustomControl(CustomControlType.PAY);
         }
 

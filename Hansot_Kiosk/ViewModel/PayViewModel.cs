@@ -24,5 +24,13 @@ namespace Hansot_Kiosk.ViewModel
             get => _qrCode;
             set => SetProperty(ref _qrCode, value);
         }
+
+        private int _orderCount;
+
+        public int OrderCount
+        {
+            get => _orderCount;
+            set => SetProperty(ref _orderCount, value);
+        }
     }
 }

@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UIStateManagerLibrary;
 
+
 namespace Hansot_Kiosk.View
 {
     /// <summary>
@@ -24,6 +25,7 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlPayResult : CustomControlModel, INotifyPropertyChanged
     {
+
         public string User;
 
         OrderMenuRepository orderMenuRepository = new OrderMenuRepository();
@@ -43,9 +45,9 @@ namespace Hansot_Kiosk.View
 
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
+            int userIdx = App.payViewModel.OrderCount;
             Console.WriteLine(UserControlSelectTable.CurButton);
-            int useridx = orderMenuRepository.GetIdx();
-            orderMenuRepository.InsertMneu(App.orderViewModel.orderMenu, useridx);
+            orderMenuRepository.InsertMneu(App.orderViewModel.orderMenu, userIdx);
             for(int i = 0;  App.orderViewModel.orderMenu.Count > i; i++)
             {
                 App.orderViewModel.orderMenu[i].count = 0;
