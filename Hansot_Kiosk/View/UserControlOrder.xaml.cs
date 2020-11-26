@@ -30,10 +30,10 @@ namespace Hansot_Kiosk.View
 
         OrderMenuRepository orderMenuRepository = new OrderMenuRepository();
 
-        private List<Model.Menu> calcaulation = new List<Model.Menu>()
-        {
-            //담겨지는 리스트
-        };
+        //private List<Model.Menu> calcaulation = new List<Model.Menu>()
+        //{
+        //    //담겨지는 리스트
+        //};
 
         private List<Model.Menu> seeSixList = new List<Model.Menu>()
         {
@@ -47,17 +47,19 @@ namespace Hansot_Kiosk.View
             InitializeComponent();
             this.FontFamily = new System.Windows.Media.FontFamily("배달의민족 도현");
             this.Loaded += MainWindow_Loaded;
-            this.listView.ItemsSource = calcaulation; // listView 담겨지는 calcaulation 담겨지는 리스트 
-            tbTotalPrice.Text = App.payViewModel.TotalMoney + "";
+            // tbTotalPrice.Text = App.payViewModel.TotalMoney + "";
+            tbTotalPrice.DataContext = App.payViewModel;
+            this.listView.ItemsSource = App.orderViewModel.orderMenu; // listView 담겨지는 calcaulation 담겨지는 리스트 
             OnPropertyChanged("");
             BtnNotClick();
             MenuRepository repository = new MenuRepository();
             menus = repository.GetMenus();
         }
+
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            
             this.DataContext = App.payViewModel;
-            App.payViewModel.TotalMoney = 50;
             lbCategory.SelectedIndex = 0;
         }
         private void lbCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -67,6 +69,7 @@ namespace Hansot_Kiosk.View
             divideMenu();
             Category category = (Category)lbCategory.SelectedIndex;
             lbMenus.ItemsSource = seeSixList.Where(x => x.category == category).ToList();
+            
         }
         private void lbMenus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -75,11 +78,11 @@ namespace Hansot_Kiosk.View
             int flag = 0; // 이미 그 메뉴가 있으면 더이상 추가 안되게 
             if (food != null)
             {
-                for (int i = 0; i< calcaulation.Count; i++)
+                for (int i = 0; i< App.orderViewModel.orderMenu.Count; i++)
                 {
-                    if(food.name == calcaulation[i].name)
+                    if(food.name == App.orderViewModel.orderMenu[i].name)
                     {
-                        calcaulation[i].count++;
+                        App.orderViewModel.orderMenu[i].count++;
                         flag = 1;
                         break;
                     }
@@ -87,12 +90,12 @@ namespace Hansot_Kiosk.View
             
                 if (flag == 0)
                 {
-                    calcaulation.Add(food);
-                    for (int i = 0; i < calcaulation.Count; i++)
+                    App.orderViewModel.orderMenu.Add(food);
+                    for (int i = 0; i < App.orderViewModel.orderMenu.Count; i++)
                     {
-                        if (food.name == calcaulation[i].name)
+                        if (food.name == App.orderViewModel.orderMenu[i].name)
                         {
-                            calcaulation[i].count++;
+                            App.orderViewModel.orderMenu[i].count++;
                         }
                     }
                 }
@@ -107,31 +110,31 @@ namespace Hansot_Kiosk.View
             var food = ((System.Windows.Controls.ListViewItem)listView.ContainerFromElement(sender as System.Windows.Controls.Button)).Content as Model.Menu;
             if (name == "plus")
             {
-                for (int i = 0; i < calcaulation.Count; i++)
+                for (int i = 0; i < App.orderViewModel.orderMenu.Count; i++)
                 {
-                    if (food.name == calcaulation[i].name)
+                    if (food.name == App.orderViewModel.orderMenu[i].name)
                     {
-                        calcaulation[i].count++;
+                        App.orderViewModel.orderMenu[i].count++;
                         calculationPrice();
                     }
                 }
             }
             else
             {
-                for(int i = 0; i < calcaulation.Count; i++)
+                for(int i = 0; i < App.orderViewModel.orderMenu.Count; i++)
                 {
-                    if (food.name == calcaulation[i].name)
+                    if (food.name == App.orderViewModel.orderMenu[i].name)
                     {
                         if (food.count == 1)
                         {
-                            calcaulation[i].count = 0;
+                            App.orderViewModel.orderMenu[i].count = 0;
                             calculationPrice();
-                            calcaulation.Remove(food);
+                            App.orderViewModel.orderMenu.Remove(food);
                             listView.Items.Refresh();
                         }
                         else
                         {
-                            calcaulation[i].count--;
+                            App.orderViewModel.orderMenu[i].count--;
                             calculationPrice();
                         }
                     }
@@ -147,12 +150,12 @@ namespace Hansot_Kiosk.View
             {
                 if (System.Windows.MessageBox.Show("홈화면으로 이동하시겠습니까? 홈화면으로 이동시 주문하던 메뉴가 지워집니다.", "안내", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    for (int i = 0; i < calcaulation.Count; i++)
+                    for (int i = 0; i < App.orderViewModel.orderMenu.Count; i++)
                     {
-                        calcaulation[i].count = 0;
+                        App.orderViewModel.orderMenu[i].count = 0;
                     }
                     App.payViewModel.TotalMoney = 0;
-                    calcaulation.Clear();
+                    App.orderViewModel.orderMenu.Clear();
 
                     calculationPrice();
                     listView.Items.Refresh();
@@ -172,7 +175,6 @@ namespace Hansot_Kiosk.View
         private void btnMoveToPlace(object sender, RoutedEventArgs e)
         {
             BtnNotClick();
-            App.orderViewModel.orderMenu = calcaulation;
             App.uIStateManager.SwitchCustomControl(CustomControlType.PLACE);
         }
         private void calculationPrice()
@@ -180,17 +182,16 @@ namespace Hansot_Kiosk.View
             BtnNotClick();
 
             App.payViewModel.TotalMoney = 0;
-            for (int i = 0; i < calcaulation.Count; i++)
+            for (int i = 0; i < App.orderViewModel.orderMenu.Count; i++)
             {
-                    App.payViewModel.TotalMoney += calcaulation[i].price * calcaulation[i].count;
+                App.payViewModel.TotalMoney += App.orderViewModel.orderMenu[i].price * App.orderViewModel.orderMenu[i].count;
             }
-            tbTotalPrice.Text = App.payViewModel.TotalMoney + "";
         }
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             var food = ((System.Windows.Controls.ListViewItem)listView.ContainerFromElement(sender as System.Windows.Controls.Button)).Content as Model.Menu;
             food.count = 0;
-            calcaulation.Remove(food);
+            App.orderViewModel.orderMenu.Remove(food);
             listView.Items.Refresh();
             calculationPrice();
             BtnNotClick();
@@ -199,11 +200,11 @@ namespace Hansot_Kiosk.View
         {
                 if(System.Windows.MessageBox.Show("선택한 메뉴를 모두 삭제하시겠습니까?", "안내", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    for (int i = 0; i < calcaulation.Count; i++)
+                    for (int i = 0; i < App.orderViewModel.orderMenu.Count; i++)
                     {
-                        calcaulation[i].count = 0;
+                    App.orderViewModel.orderMenu[i].count = 0;
                     }
-                    calcaulation.Clear();
+                    App.orderViewModel.orderMenu.Clear();
                     App.payViewModel.TotalMoney = 0;
                 
                     calculationPrice();
@@ -227,16 +228,6 @@ namespace Hansot_Kiosk.View
             {
                 AllRemove.IsEnabled = true;
                 OrderBtn.IsEnabled = true;
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(String name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
             }
         }
 
@@ -302,6 +293,16 @@ namespace Hansot_Kiosk.View
             }
             divideMenu();
             lbMenus.ItemsSource = seeSixList ;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(String name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }

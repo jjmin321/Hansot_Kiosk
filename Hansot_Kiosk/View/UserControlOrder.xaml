@@ -201,8 +201,7 @@
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBlock  FontSize="40">총합:</TextBlock>
-                        <TextBlock  FontSize="40" Name="tbTotalPrice" Text="{Binding totalPrice}"></TextBlock>
-
+                        <TextBlock  FontSize="40" Name="tbTotalPrice" Text="{Binding TotalMoney}"></TextBlock>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="2">

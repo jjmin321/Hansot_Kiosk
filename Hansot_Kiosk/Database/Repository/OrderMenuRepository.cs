@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hansot_Kiosk.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace Hansot_Kiosk.Database.Repository
 
     Connection connection = new Connection();
 
-        private int idx = 0;
+        private int idx = 1;
         public int GetIdx()
         {
             connection.Connect();
@@ -29,19 +30,20 @@ namespace Hansot_Kiosk.Database.Repository
                     idx = Convert.ToInt32(reader["idx"]);
                 }
             }
-
+            idx++;
             return idx;
         }
 
-        public void InsertMneu(List<Model.Menu> OrderMenu)
+        public void InsertMneu(List<Menu> OrderMenu, int userIdx)
         {
-            var name =App.userViewModel.Name;
+            string name = App.payViewModel.QrCode;
             connection.Connect();
-            for (int i = 0; i < OrderMenu.Count; i ++)
+            
+            for (int i = 0; i < OrderMenu.Count; i++)
             {
-                string sql = string.Format("INSERT into payment( idx, user_name, menu_idx, menu_count) VALUES({0},{1},{2},{3});",idx,"정성훈",OrderMenu[i].name,OrderMenu[i].count );
+                string sql = string.Format("INSERT into payment( idx, user_name, menu_name, menu_count) VALUES({0},'{1}','{2}',{3});",userIdx,name,OrderMenu[i].name,OrderMenu[i].count );
                 MySqlCommand cmd = new MySqlCommand(sql, Connection.connection);
-                //cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
             }
             connection.Close();
         }
