@@ -30,7 +30,6 @@ namespace Hansot_Kiosk.Database.Repository
                     idx = Convert.ToInt32(reader["idx"]);
                 }
             }
-            idx++;
             App.payViewModel.OrderCount = idx;
             return idx;
         }
