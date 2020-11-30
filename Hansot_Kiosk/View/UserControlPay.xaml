@@ -12,12 +12,13 @@
         <ListView Width="500" Height="300" Margin="-700, 0, 100, 50" x:Name="FoodListView">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="음식 이름" Width="150" DisplayMemberBinding="{Binding FoodName}"></GridViewColumn>
-                    <GridViewColumn Header="갯수" Width="50" DisplayMemberBinding="{Binding FoodCount}"></GridViewColumn>
-                    <GridViewColumn Header="비용" Width="300" DisplayMemberBinding="{Binding FoodMoney}"></GridViewColumn>
+                    <GridViewColumn Header="음식 이름" Width="150" DisplayMemberBinding="{Binding name}"></GridViewColumn>
+                    <GridViewColumn Header="갯수" Width="50" DisplayMemberBinding="{Binding count}"></GridViewColumn>
+                    <GridViewColumn Header="비용" Width="300" DisplayMemberBinding="{Binding price}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
+
         <Button Width="360" Height="360" HorizontalAlignment="Center" VerticalAlignment="Center" FocusVisualStyle="{x:Null}"
                 Margin="150, 0, 0, 65" Content="현금"
                 FontSize="50" Background="#FF008575" Foreground="White" Click="btnMoveToPayByMoney"></Button>
@@ -26,6 +27,9 @@
                 FontSize="50" Background="#FF008575" Foreground="White" Click="btnMoveToPayByQR"/>
         <Button Content="이전" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="25, 0, 0, 30"
                 Foreground="White" Background="#FF008575" Width="268" Height="52" Click="btnMoveToPlace"/>
-        <TextBlock x:Name="TotalAmountView" Text="총금액 : " Margin="950, 380, 0, 0" FontSize="30" HorizontalAlignment="Center" Width="388" Height="45" VerticalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Margin="950, 380, 0, 0" HorizontalAlignment="Center">
+            <TextBlock  FontSize="40" Width="388" Height="45" Margin="0,0,-100,0">총 금액:</TextBlock>
+            <TextBlock x:Name="TotalAmountView"  FontSize="40" HorizontalAlignment="Center" Width="388" Height="45" VerticalAlignment="Center" Text="{Binding TotalMoney}"/>
+        </StackPanel>
     </Grid>
 </base:CustomControlModel>
