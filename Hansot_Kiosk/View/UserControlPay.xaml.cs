@@ -45,10 +45,14 @@ namespace Hansot_Kiosk.View
 
         private void ShowTotalPrice()
         {
-            FoodListView.ItemsSource = FoodData;
+            FoodListView.ItemsSource = null;
+            FoodListView.ItemsSource = App.orderViewModel.orderMenu;
+
             Database.Repository.ManageRepository manageRepository = new Database.Repository.ManageRepository();
             manageRepository.GetTotalTime();
-            this.DataContext = App.payViewModel;
+            // this.DataContext = App.payViewModel;
+
+            TotalAmountView.DataContext = App.payViewModel;
         }
 
         private void btnMoveToSelectTable(object sender, RoutedEventArgs e)

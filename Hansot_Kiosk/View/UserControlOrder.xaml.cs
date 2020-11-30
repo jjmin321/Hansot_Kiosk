@@ -60,7 +60,6 @@ namespace Hansot_Kiosk.View
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            
             this.DataContext = App.payViewModel;
             lbCategory.SelectedIndex = 0;
         }
