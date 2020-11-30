@@ -23,11 +23,12 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="9*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Label Name="header" MinHeight="22.5" MaxHeight="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Pink" />
+                <Label Name="header" MinHeight="22.5" MaxHeight="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Pink" Content="" FontSize="18" />
             </Grid>
             <Grid Grid.Row="1">
                 <Button Click="btnMoveToCategory"
@@ -64,9 +65,15 @@
             </Grid>
 
             <Grid Grid.Row="8">
-
+                <Button Click="btnMoveToCategory"
+                        Content="총매출액" />
             </Grid>
+
             <Grid Grid.Row="9">
+                
+            </Grid>
+            
+            <Grid Grid.Row="10">
                 <Button Click="btnMoveToHome"
                         Content="이전" />
             </Grid>

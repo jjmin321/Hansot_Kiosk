@@ -21,7 +21,7 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlPay : CustomControlModel
     {
-        int TotalPrice = 0;
+        public static List<Model.Menu> FoodData = new List<Model.Menu>();
         public UserControlPay()
         {
             InitializeComponent();
@@ -45,36 +45,16 @@ namespace Hansot_Kiosk.View
 
         private void ShowTotalPrice()
         {
-            FoodData data = new FoodData();
-            List<FoodData> foodData = new List<FoodData>();
-
-            foodData.Add(new FoodData() { FoodCount = 2, FoodMoney = 3000, FoodName = "few" });
-            foodData.Add(new FoodData() { FoodCount = 3, FoodMoney = 1500, FoodName = "dmatlr" });
-            foodData.Add(new FoodData() { FoodCount = 2, FoodMoney = 1000, FoodName = "fwjeiofjwe" });
-
-            FoodListView.ItemsSource = foodData;
-
-            for (int i = 0; i < foodData.Count; i++)
-            {
-                TotalPrice += (foodData[i].FoodMoney * foodData[i].FoodCount);
-            }
-
-            Console.WriteLine(TotalPrice);
-            TotalAmountView.Text = "총금액 : " + TotalPrice.ToString();
+            FoodListView.ItemsSource = FoodData;
+            Database.Repository.ManageRepository manageRepository = new Database.Repository.ManageRepository();
+            manageRepository.GetTotalTime();
+            this.DataContext = App.payViewModel;
         }
 
         private void btnMoveToSelectTable(object sender, RoutedEventArgs e)
-        {
+        {            
             App.uIStateManager.SwitchCustomControl(CustomControlType.TABLE);
         }
     }
-
-    public class FoodData
-    {
-        public string FoodName { get; set; }
-        public int FoodCount { get; set; }
-        public int FoodMoney { get; set; }
-    }
-
 
 }

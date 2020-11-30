@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UIStateManagerLibrary;
 using System.Diagnostics;
+using System.Windows.Threading;
 
 namespace Hansot_Kiosk.View.ManagerView
 {
@@ -22,21 +23,31 @@ namespace Hansot_Kiosk.View.ManagerView
     /// </summary>
     public partial class UserControlManager : CustomControlModel
     {
-
-        Stopwatch stopwatch = new Stopwatch();
-
+        public static string CurTime;
+        public static int dbTime = 0;
+        string TimeString;
+        DispatcherTimer myTimer = new DispatcherTimer();
+        Database.Repository.ManageRepository ManageRepository = new Database.Repository.ManageRepository();
         public UserControlManager()
         {
             InitializeComponent();
+            TimerSetting();
+            ManageRepository.GetTotalTime();
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        void TimerSetting()
         {
-            stopwatch.Start();
-            header.Content = "asdf";
-            header.Content = stopwatch.Elapsed;
+            myTimer.Interval = new TimeSpan(0, 0, 1);
+            myTimer.Tick += MyClock_Tick;
+            myTimer.Start();
         }
 
+        void MyClock_Tick(object sender, EventArgs e)
+        {
+            dbTime++;
+            CalculateTime(dbTime);
+            header.Content = TimeString;
+        }
 
         private void btnMoveToHome(object sender, RoutedEventArgs e)
         {
@@ -48,5 +59,35 @@ namespace Hansot_Kiosk.View.ManagerView
             App.uIStateManager.SwitchCustomControl(CustomControlType.CATEGORY);
         }
 
+        void CalculateTime(int Time)
+        {
+            int Hour = 0, Minute = 0, Second = 0;
+
+            if (Time >= 3600)
+            {
+                while (Time >= 3600)
+                {
+                    Time -= 3600;
+                    Hour++;
+                }
+            }
+            if (Time >= 60)
+            {
+                while (Time >= 60)
+                {
+                    Time -= 60;
+                    Minute++;
+                }
+            }
+            while (Time != 0)
+            {
+                Time -= 1;
+                Second++;
+            }
+            if (Minute >= 10)
+                header.FontSize = 16;
+            Console.WriteLine(Hour + " " + Minute + " " + Second);
+            TimeString = string.Format("{0}시간 {1}분 {2}초", Hour, Minute, Second);
+        }
     }
 }

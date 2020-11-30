@@ -12,9 +12,9 @@
         <ListView Width="500" Height="300" Margin="-700, 0, 100, 50" x:Name="FoodListView">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="음식 이름" Width="150" DisplayMemberBinding="{Binding FoodName}"></GridViewColumn>
-                    <GridViewColumn Header="갯수" Width="50" DisplayMemberBinding="{Binding FoodCount}"></GridViewColumn>
-                    <GridViewColumn Header="비용" Width="300" DisplayMemberBinding="{Binding FoodMoney}"></GridViewColumn>
+                    <GridViewColumn Header="음식 이름" Width="150" DisplayMemberBinding="{Binding name}"></GridViewColumn>
+                    <GridViewColumn Header="갯수" Width="50" DisplayMemberBinding="{Binding count}"></GridViewColumn>
+                    <GridViewColumn Header="비용" Width="300" DisplayMemberBinding="{Binding price}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -26,6 +26,6 @@
                 FontSize="50" Background="#FF008575" Foreground="White" Click="btnMoveToPayByQR"/>
         <Button Content="이전" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="25, 0, 0, 30"
                 Foreground="White" Background="#FF008575" Width="268" Height="52" Click="btnMoveToPlace"/>
-        <TextBlock x:Name="TotalAmountView" Text="총금액 : " Margin="950, 380, 0, 0" FontSize="30" HorizontalAlignment="Center" Width="388" Height="45" VerticalAlignment="Center"/>
+        <TextBlock x:Name="TotalMoneyView" Text="{Binding TotalMoney, StringFormat=총 금액 : {0}}" Margin="950, 380, 0, 0" FontSize="30" HorizontalAlignment="Center" Width="388" Height="45" VerticalAlignment="Center"/>
     </Grid>
 </base:CustomControlModel>

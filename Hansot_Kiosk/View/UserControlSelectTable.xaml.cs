@@ -20,7 +20,7 @@ namespace Hansot_Kiosk.View
     public partial class UserControlSelectTable : CustomControlModel
     {
         Color selectTableColor = Color.FromRgb(118, 255, 3);
-        public Color basicColor = Color.FromRgb(141, 110, 99);
+        public static  Color basicColor = Color.FromRgb(141, 110, 99);
         static Color isChooseColor = Color.FromRgb(229, 57, 53);
         Button beforeButton;
         public static Button CurButton;

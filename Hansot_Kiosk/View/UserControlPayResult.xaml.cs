@@ -57,6 +57,7 @@ namespace Hansot_Kiosk.View
             
             
             SelectedTableCountDown();
+            MainWindow.isSettled = false;
             App.uIStateManager.SwitchCustomControl(CustomControlType.HOME);
         }
 

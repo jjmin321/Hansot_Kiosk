@@ -47,7 +47,7 @@ namespace Hansot_Kiosk.View
             tbRecog.Text = e;
             App.payViewModel.Name = e;
             App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
-            
+            MainWindow.isSettled = true;
         }
 
         private void btnMoveToPay(object sender, RoutedEventArgs e)

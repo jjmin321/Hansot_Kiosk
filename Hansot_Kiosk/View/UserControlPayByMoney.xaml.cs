@@ -53,6 +53,7 @@ namespace Hansot_Kiosk.View
                 MessageBox.Show("결제 완료되었습니다.");
                 App.payViewModel.Name = userName;
                 App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
+                MainWindow.isSettled = true;
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
