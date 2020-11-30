@@ -32,5 +32,13 @@ namespace Hansot_Kiosk.ViewModel
             get => _orderCount;
             set => SetProperty(ref _orderCount, value);
         }
+
+        private string _name;
+
+        public string Name
+        {
+            get => _name;
+            set => SetProperty(ref _name, value);
+        }
     }
 }

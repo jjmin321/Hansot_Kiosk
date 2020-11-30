@@ -45,7 +45,7 @@ namespace Hansot_Kiosk.View
         private void webcam_QrDecoded(object sender, string e)
         {
             tbRecog.Text = e;
-            App.payViewModel.QrCode = e;
+            App.payViewModel.Name = e;
             App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
             
         }

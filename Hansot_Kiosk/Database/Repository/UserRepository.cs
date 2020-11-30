@@ -48,20 +48,20 @@ namespace Hansot_Kiosk.Database.Repository
             return name;
         }
 
-        public string GetUserBarcode(string id, string pw)
+        public string GetUserNameByBarcode(string barcode)
         {
             connection.Connect();
-            string sql = string.Format("SELECT barcode FROM user WHERE ID = '{0}' AND PW = '{1}';", id, pw);
+            string sql = string.Format("SELECT name FROM user WHERE barcode = '{0}';", barcode);
             MySqlCommand cmd = new MySqlCommand(sql, Connection.connection);
             //ExecuteNonQuery() : insert, update, delete 사용시
             //ExecuteReader() :select 사용시
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                barcode = Convert.ToString(reader["barcode"]);
+                name = Convert.ToString(reader["name"]);
             }
             connection.Close();
-            return barcode;
+            return name;
         }
 
         public void SetLogin(string name, string barcode)

@@ -1,4 +1,5 @@
 ﻿using System;
+using Hansot_Kiosk.Database.Repository;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -22,7 +23,8 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlPayByMoney : CustomControlModel, INotifyPropertyChanged
     {
-        public string userBarcode = "2112345678900";
+        UserRepository userRepository = new UserRepository();
+        public string userBarcode = string.Empty;
         public UserControlPayByMoney()
         {
             InitializeComponent();
@@ -43,12 +45,15 @@ namespace Hansot_Kiosk.View
 
         private void tbBarcode_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (userBarcode.Equals(tbBarcode.Text.ToString()))
+            userBarcode = tbBarcode.Text.ToString();
+            if (userBarcode == "9790260532113" || userBarcode == "2112345678900" 
+                || userBarcode == "02345673")
             {
+                string userName = userRepository.GetUserNameByBarcode(userBarcode);
                 MessageBox.Show("결제 완료되었습니다.");
+                App.payViewModel.Name = userName;
                 App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
             }
-            
         }
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(String name)

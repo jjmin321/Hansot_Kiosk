@@ -33,7 +33,6 @@ namespace Hansot_Kiosk.View
         public void btnLogin(object sender, RoutedEventArgs e)
         {
             App.userViewModel.Name = userRepository.GetUserName(tbId.Text, tbPw.Text);
-            App.userViewModel.Barcode = userRepository.GetUserBarcode(tbId.Text, tbPw.Text);
             if (App.userViewModel.Name == null)
             {
                 MessageBox.Show("유저를 찾을 수 없습니다");

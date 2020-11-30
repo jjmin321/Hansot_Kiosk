@@ -37,7 +37,7 @@ namespace Hansot_Kiosk.Network
         {
             try
             {
-                client.BeginConnect("10.80.162.203", 80, new AsyncCallback(ConnectCallback), client);
+                client.BeginConnect("10.80.162.152", 80, new AsyncCallback(ConnectCallback), client);
                 //connectDone.WaitOne();
             }
             catch (Exception e)
