@@ -28,6 +28,8 @@ namespace Hansot_Kiosk.View
     {
         int startNumber = 0;
 
+        public int userIdx;
+
         OrderMenuRepository orderMenuRepository = new OrderMenuRepository();
 
         //private List<Model.Menu> calcaulation = new List<Model.Menu>()
@@ -174,6 +176,8 @@ namespace Hansot_Kiosk.View
         }
         private void btnMoveToPlace(object sender, RoutedEventArgs e)
         {
+            userIdx = orderMenuRepository.GetIdx();
+            App.payViewModel.OrderCount = userIdx + 1;
             BtnNotClick();
             App.uIStateManager.SwitchCustomControl(CustomControlType.PLACE);
         }

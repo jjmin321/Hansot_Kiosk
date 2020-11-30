@@ -26,7 +26,6 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlPayByQR : CustomControlModel, INotifyPropertyChanged
     {
-        public int userIdx;
 
         OrderMenuRepository orderMenuRepository = new OrderMenuRepository();
 
@@ -47,9 +46,8 @@ namespace Hansot_Kiosk.View
         {
             tbRecog.Text = e;
             App.payViewModel.QrCode = e;
-            userIdx = orderMenuRepository.GetIdx();
-            App.payViewModel.OrderCount = userIdx;
             App.uIStateManager.SwitchCustomControl(CustomControlType.PAYRESULT);
+            
         }
 
         private void btnMoveToPay(object sender, RoutedEventArgs e)

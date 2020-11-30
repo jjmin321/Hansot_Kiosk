@@ -38,6 +38,7 @@ namespace Hansot_Kiosk.View
 
         private void btnMoveToOrder(object sender, RoutedEventArgs e)
         {
+            App.payViewModel.OrderCount = App.payViewModel.OrderCount - 1;
             App.uIStateManager.SwitchCustomControl(CustomControlType.ORDER);
         }
     }
