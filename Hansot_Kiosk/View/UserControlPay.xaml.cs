@@ -21,7 +21,7 @@ namespace Hansot_Kiosk.View
     /// </summary>
     public partial class UserControlPay : CustomControlModel
     {
-        int TotalPrice = 0;
+        public static List<Model.Menu> FoodData = new List<Model.Menu>();
         public UserControlPay()
         {
             InitializeComponent();
@@ -48,21 +48,17 @@ namespace Hansot_Kiosk.View
             FoodListView.ItemsSource = null;
             FoodListView.ItemsSource = App.orderViewModel.orderMenu;
 
+            Database.Repository.ManageRepository manageRepository = new Database.Repository.ManageRepository();
+            manageRepository.GetTotalTime();
+            // this.DataContext = App.payViewModel;
+
             TotalAmountView.DataContext = App.payViewModel;
         }
 
         private void btnMoveToSelectTable(object sender, RoutedEventArgs e)
-        {
+        {            
             App.uIStateManager.SwitchCustomControl(CustomControlType.TABLE);
         }
     }
-
-    public class FoodData
-    {
-        public string FoodName { get; set; }
-        public int FoodCount { get; set; }
-        public int FoodMoney { get; set; }
-    }
-
 
 }
